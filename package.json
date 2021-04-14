@@ -16,19 +16,34 @@
         "prepublish": "yarn build"
     },
     "patchcab": [{
-        "name": "Polyrhythm",
-        "file": "Polyrhythm",
-        "size": {
-            "w": 20,
-            "h": 1
+            "name": "Polyrhythm",
+            "file": "Polyrhythm",
+            "size": {
+                "w": 20,
+                "h": 1
+            },
+            "tags": [
+                "sequencer"
+            ],
+            "libs": [
+                "Tone"
+            ]
         },
-        "tags": [
-            "sequencer"
-        ],
-        "libs": [
-            "Tone"
-        ]
-    }],
+        {
+            "name": "CVSequencer",
+            "file": "CVSequencer",
+            "size": {
+                "w": 6,
+                "h": 1
+            },
+            "tags": [
+                "sequencer"
+            ],
+            "libs": [
+                "Tone"
+            ]
+        }
+    ],
     "prettier": {
         "useTabs": false,
         "arrowParens": "always",

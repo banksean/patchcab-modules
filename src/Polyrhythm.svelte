@@ -101,7 +101,7 @@
 </style>
 
 <Faceplate title="POLYRHYTHM" color="#1D1E22">
-    <dividers style="top:50px">
+    <dividers style="top:30px">
       {#each Array(DIVS).fill(0) as _, stepIndex}
         <div class="division-heading" style="left:{stepIndex * 64}px; top:24px">rhythm {stepIndex + 1}</div>
       {/each}
@@ -118,7 +118,7 @@
         {/each}
         <div class="row-title" style="top: 52px;">divider</div>
     </dividers>
-    <offsets style="top:110px">
+    <offsets style="top:90px">
        {#each state.offsets as offset, index}
       <Knob size="s"
           x={index * 64}
@@ -133,7 +133,7 @@
         <div class="row-title" style="top:60px">offset</div>
     </offsets>
     
-    <toggles style="top:210px">
+    <toggles style="top:190px">
       {#each state.seqToggles as row, seqIndex}
         {#each row as seqAssignment, rhythmIndex}
         <Switch
