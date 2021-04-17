@@ -42,6 +42,20 @@
             "libs": [
                 "Tone"
             ]
+        },
+        {
+            "name": "OvertonesOSC",
+            "file": "OvertonesOSC",
+            "size": {
+                "w": 54,
+                "h": 1
+            },
+            "tags": [
+                "oscillator"
+            ],
+            "libs": [
+                "Tone"
+            ]
         }
     ],
     "prettier": {
