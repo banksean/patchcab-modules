@@ -30,6 +30,20 @@
             ]
         },
         {
+            "name": "bankseanMIDI",
+            "file": "MIDI",
+            "size": {
+                "w": 6,
+                "h": 1
+            },
+            "tags": [
+                "utility"
+            ],
+            "libs": [
+                "Tone"
+            ]
+        },
+        {
             "name": "CVSequencer",
             "file": "CVSequencer",
             "size": {

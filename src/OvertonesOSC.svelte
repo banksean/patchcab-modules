@@ -8,26 +8,26 @@
   export let state = {
     // Partials contains the amplitue of each partial, from lowest to highest.
     partials: Array(PARTIALS).fill(0).map(()=>Math.random()),
-    freq: 110,
+    fundamental: 110,
     fm: 1
   };
 
-  const MIN = 20;
-  const MAX = 1200;
-    
-  const oscillator = new Oscillator(state.freq).start();
+  const MIN = 2;
+  const MAX = 120;
+  
+  const oscillator = new Oscillator(state.fundamental).start();
   oscillator.partialCount = PARTIALS;
 
   const scale = new Scale(MIN, MAX);
 
   const scales = Array(PARTIALS).fill(0).map(()=>new Scale(0.0, 1.0));
 
-  $: oscillator.frequency.value = state.freq;
+  $: oscillator.frequency.value = state.fundamental;
   $: oscillator.type = 'custom';
   // TODO: figure out how to drive partials by incoming CV.
   $: oscillator.partials = [...state.partials.map((p, i) => {return p})]; 
-  $: scale.min = Math.max(MIN, state.freq - state.freq * state.fm);
-  $: scale.max = Math.min(MAX, state.freq + (MAX - state.freq) * state.fm);
+  $: scale.min = Math.max(MIN, state.fundamental - state.fundamental * state.fm);
+  $: scale.max = Math.min(MAX, state.fundamental + (MAX - state.fundamental) * state.fm);
 
   const onConnect = (nodes: number) => {
     if (nodes) {
@@ -35,7 +35,7 @@
     } else {
       scale.disconnect(oscillator.frequency);
       oscillator.frequency.overridden = false;
-      oscillator.frequency.value = state.freq;
+      oscillator.frequency.value = state.fundamental;
     }
   };
   
@@ -58,7 +58,7 @@
         <Fader
           y={10}
           x={0}
-          bind:value={state.freq} min={MIN} max={MAX} steps={500} 
+          bind:value={state.fundamental} min={MIN} max={MAX} steps={500} 
           label="FND"/>
         {#each state.partials as _, partialIndex}
             <Fader
