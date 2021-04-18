@@ -1,6 +1,6 @@
 <script lang="ts">
     import { Faceplate, Knob, Patch, Switch } from '@patchcab/core';
-    import { Signal, Clock, Oscillator, Scale, now } from 'Tone';
+    import { Signal, Clock, Oscillator, Frequency, now } from 'Tone';
     import { Bang } from '../public/js/core';
     import Indicator from './Indicator.svelte';
     let inputs, outputs;
@@ -15,10 +15,9 @@
         .then(onMIDISuccess, onMIDIFailure);
 
     const gateOut = new Bang();
-    const scale = new Scale(0, 127);
-    const noteCv = new Signal().connect(scale);
-    const velCv = new Signal().connect(scale);
-    const modCv = new Signal().connect(scale);
+    const noteCv = new Signal();
+    const velCv = new Signal();
+    const modCv = new Signal();
     let keyDown = false;
 
     function onMIDISuccess(midiAccess) {
@@ -69,26 +68,26 @@
 
     function noteOn(note, velocity) {
         gateOut.bang(now(), true, false);
-        noteCv.setValueAtTime(note, now());
-        velCv.setValueAtTime(velocity, now());
+        noteCv.setValueAtTime(Frequency(note, "midi").toFrequency(), now());
+        velCv.setValueAtTime(velocity/127.0, now());
         keyDown = true;
     }
 
     function noteOff(note, velocity) {
         gateOut.bang(now(), false, true);
-        velCv.setValueAtTime(velocity, now());
+        velCv.setValueAtTime(velocity/127.0, now());
         keyDown = false;
     }
 
     function controlChange(control, value) {
-        modCv.setValueAtTime(value, now());
+        modCv.setValueAtTime(value/127.0, now());
     }
 
     function channelAftertouch(velocity) {
         if (!state.velocityAftertouch) {
             return;
         }
-        velCv.setValueAtTime(velocity, now());
+        velCv.setValueAtTime(velocity/127.0, now());
     }
 
     function onMIDIFailure() {
@@ -116,8 +115,8 @@
     ></Knob>
     <Patch y={120} output={gateOut} name="gate" label="gate"></Patch>
     <Indicator y={128} x={40} active={keyDown}></Indicator>
-    <Patch y={170} output={noteCv} name="cv-note" label="note cv"></Patch>
-    <Patch y={220} output={velCv} name="cv-vel" label="vel cv"></Patch>
+    <Patch y={170} output={noteCv} name="cv-note" label="f"></Patch>
+    <Patch y={220} output={velCv} name="cv-vel" label="vel"></Patch>
     <Switch
         x={40}
         y={220}
@@ -126,6 +125,6 @@
         square
         label="aft"
     />
-    <Patch y={270} output={modCv} name="cv-mod" label="mod cv"></Patch>
+    <Patch y={270} output={modCv} name="cv-mod" label="mod"></Patch>
     </midi>
 </Faceplate>

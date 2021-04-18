@@ -27,11 +27,13 @@
   
   <style>
     steps {
+        position: absolute;
+        top: 0px;
     }  
   </style>
   
   <Faceplate title="CVSEQ" color="#1D1E22">
-      <steps style="top:40px">
+      <steps>
         {#each state.seqSteps as cv, stepIndex}
             <Knob size="s"
               x={20}

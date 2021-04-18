@@ -1,1 +1,309 @@
-{"title":"My untiled synth","modules":[{"state":{"dividers":[4,4,4,1],"offsets":[0,3,1,0],"seqToggles":[[1,1,0,0],[1,0,1,0]]},"position":{"x":96,"y":0},"id":"patchcab-modules/polyrhythm-q8sxc15jt"},{"state":{"freq":3.85},"position":{"x":0,"y":0},"id":"@patchcab-modules/clock-kn486qemk"},{"position":{"x":1184,"y":380},"id":"@patchcab-modules/out-t93osghm8"},{"state":{"volume":0.77},"position":{"x":704,"y":0},"id":"@patchcab-modules/vol-5zfyln2n6"},{"state":{"attack":0.5,"decay":0.1,"sustain":0.5,"release":1},"position":{"x":416,"y":0},"id":"@patchcab-modules/adsr-c6bl1i9uy"},{"state":{"freq":489,"type":"square","fm":0.16},"position":{"x":608,"y":0},"id":"@patchcab-modules/osc-za2bsmcr0"},{"state":{"attack":0.5,"decay":0.34,"sustain":0.5,"release":1},"position":{"x":800,"y":0},"id":"@patchcab-modules/adsr-vcljwcdoz"},{"state":{"freq":410,"type":"sawtooth","fm":0.19},"position":{"x":992,"y":0},"id":"@patchcab-modules/osc-lf3ccmj09"},{"state":{"volume":2},"position":{"x":1088,"y":0},"id":"@patchcab-modules/vol-vu8rtq583"},{"state":{"seqSteps":[1,0.71,0.34,0.13]},"position":{"x":512,"y":0},"id":"patchcab-modules/cvsequencer-4aurhx3rl"},{"state":{"seqSteps":[0,0.33,0.76,1]},"position":{"x":896,"y":0},"id":"patchcab-modules/cvsequencer-aly0sicat"},{"state":{"attack":0.12,"decay":0.1,"sustain":0.5,"release":1},"position":{"x":864,"y":380},"id":"@patchcab-modules/adsr-fjtkmpgtw"},{"state":{"volume":2},"position":{"x":960,"y":380},"id":"@patchcab-modules/vol-ppu092qar"},{"state":{"partials":[0.55,1,0.67,0.31,0.53,0.4,0.17,0.07,0.03,0,0,0,0,0,0,0],"fundamental":2,"fm":0.02},"position":{"x":0,"y":380},"id":"patchcab-modules/overtonesosc-rj6tks4qd"},{"state":{"channel":0,"input":""},"position":{"x":288,"y":760},"id":"patchcab-modules/midiin-2il3s1347"}],"patches":[{"input":"@patchcab-modules/adsr-c6bl1i9uy://gate","output":"patchcab-modules/polyrhythm-q8sxc15jt://out-gate-0"},{"input":"@patchcab-modules/vol-5zfyln2n6://cv-1","output":"@patchcab-modules/adsr-c6bl1i9uy://cv"},{"input":"@patchcab-modules/vol-5zfyln2n6://audio-in","output":"@patchcab-modules/osc-za2bsmcr0://audio-out"},{"input":"patchcab-modules/polyrhythm-q8sxc15jt://clock","output":"@patchcab-modules/clock-kn486qemk://gate-out-1"},{"input":"@patchcab-modules/adsr-vcljwcdoz://gate","output":"patchcab-modules/polyrhythm-q8sxc15jt://out-gate-1"},{"input":"@patchcab-modules/vol-vu8rtq583://audio-in","output":"@patchcab-modules/osc-lf3ccmj09://audio-out"},{"input":"@patchcab-modules/vol-vu8rtq583://cv-1","output":"@patchcab-modules/adsr-vcljwcdoz://cv"},{"input":"patchcab-modules/cvsequencer-4aurhx3rl://advance","output":"patchcab-modules/polyrhythm-q8sxc15jt://out-gate-0"},{"input":"patchcab-modules/cvsequencer-aly0sicat://advance","output":"patchcab-modules/polyrhythm-q8sxc15jt://out-gate-1"},{"input":"@patchcab-modules/osc-lf3ccmj09://signal-in","output":"patchcab-modules/cvsequencer-aly0sicat://out-cv"},{"input":"@patchcab-modules/osc-za2bsmcr0://signal-in","output":"patchcab-modules/cvsequencer-4aurhx3rl://out-cv"},{"input":"@patchcab-modules/vol-ppu092qar://audio-in","output":"patchcab-modules/partialsosc-ptfqyj5ob://out-cv"},{"input":"@patchcab-modules/out-t93osghm8://audio-in","output":"@patchcab-modules/vol-ppu092qar://audio-out"},{"input":"@patchcab-modules/vol-ppu092qar://cv-1","output":"@patchcab-modules/adsr-fjtkmpgtw://cv"},{"input":"patchcab-modules/partialsosc-ptfqyj5ob://in-cv","output":"patchcab-modules/cvsequencer-4aurhx3rl://out-cv"},{"input":"@patchcab-modules/vol-ppu092qar://audio-in","output":"patchcab-modules/overtonesosc-rj6tks4qd://out-cv"},{"input":"@patchcab-modules/adsr-fjtkmpgtw://gate","output":"patchcab-modules/bankseanmidi-d9gvicj73://gate"},{"input":"patchcab-modules/overtonesosc-rj6tks4qd://in-cv","output":"patchcab-modules/bankseanmidi-d9gvicj73://cv"},{"input":"@patchcab-modules/adsr-fjtkmpgtw://gate","output":"patchcab-modules/midiin-2il3s1347://gate"},{"input":"patchcab-modules/overtonesosc-rj6tks4qd://in-cv","output":"patchcab-modules/midiin-2il3s1347://cv"}]}
+{
+    "title": "My untiled synth",
+    "modules": [{
+            "state": {
+                "freq": 3.85
+            },
+            "position": {
+                "x": 0,
+                "y": 0
+            },
+            "id": "@patchcab-modules/clock-kn486qemk"
+        },
+        {
+            "position": {
+                "x": 1184,
+                "y": 380
+            },
+            "id": "@patchcab-modules/out-t93osghm8"
+        },
+        {
+            "state": {
+                "volume": 0.77
+            },
+            "position": {
+                "x": 704,
+                "y": 0
+            },
+            "id": "@patchcab-modules/vol-5zfyln2n6"
+        },
+        {
+            "state": {
+                "attack": 0.5,
+                "decay": 0.1,
+                "sustain": 0.5,
+                "release": 1
+            },
+            "position": {
+                "x": 416,
+                "y": 0
+            },
+            "id": "@patchcab-modules/adsr-c6bl1i9uy"
+        },
+        {
+            "state": {
+                "freq": 175,
+                "type": "square",
+                "fm": 0.16
+            },
+            "position": {
+                "x": 608,
+                "y": 0
+            },
+            "id": "@patchcab-modules/osc-za2bsmcr0"
+        },
+        {
+            "state": {
+                "attack": 0.5,
+                "decay": 0.34,
+                "sustain": 0.5,
+                "release": 1
+            },
+            "position": {
+                "x": 800,
+                "y": 0
+            },
+            "id": "@patchcab-modules/adsr-vcljwcdoz"
+        },
+        {
+            "state": {
+                "freq": 410,
+                "type": "sawtooth",
+                "fm": 0.19
+            },
+            "position": {
+                "x": 992,
+                "y": 0
+            },
+            "id": "@patchcab-modules/osc-lf3ccmj09"
+        },
+        {
+            "state": {
+                "volume": 2
+            },
+            "position": {
+                "x": 1088,
+                "y": 0
+            },
+            "id": "@patchcab-modules/vol-vu8rtq583"
+        },
+        {
+            "state": {
+                "attack": 0.12,
+                "decay": 0.1,
+                "sustain": 0.5,
+                "release": 1
+            },
+            "position": {
+                "x": 864,
+                "y": 380
+            },
+            "id": "@patchcab-modules/adsr-fjtkmpgtw"
+        },
+        {
+            "state": {
+                "volume": 2
+            },
+            "position": {
+                "x": 960,
+                "y": 380
+            },
+            "id": "@patchcab-modules/vol-ppu092qar"
+        },
+        {
+            "state": {
+                "partials": [
+                    0.14447617969877635,
+                    0.07210773475972143,
+                    0.7154418833941587,
+                    0.38458416198930223,
+                    0.8517108035066068,
+                    0.45974788712912584,
+                    0.6979709999102146,
+                    0.24066912871818102,
+                    0.5685219907766763,
+                    0.9967028290000801,
+                    0.8883927528527302,
+                    0.29515306268415764,
+                    0.1701031343130155,
+                    0.4681693426628437,
+                    0.937227690468905,
+                    0.7455344381392104
+                ],
+                "fundamental": 0,
+                "fm": 1
+            },
+            "position": {
+                "x": 0,
+                "y": 380
+            },
+            "id": "@banksean-patchcab-modules/harmonicosc-pa29uwb05"
+        },
+        {
+            "state": {
+                "dividers": [
+                    1,
+                    3,
+                    1,
+                    1
+                ],
+                "offsets": [
+                    0,
+                    4,
+                    0,
+                    0
+                ],
+                "seqToggles": [
+                    [
+                        1,
+                        0,
+                        0,
+                        0
+                    ],
+                    [
+                        0,
+                        1,
+                        0,
+                        0
+                    ]
+                ]
+            },
+            "position": {
+                "x": 96,
+                "y": 0
+            },
+            "id": "@banksean-patchcab-modules/polyrhythm-z3idpoc4p"
+        },
+        {
+            "state": {
+                "channel": 0,
+                "velocityAftertouch": false,
+                "input": 0
+            },
+            "position": {
+                "x": 352,
+                "y": 760
+            },
+            "id": "@banksean-patchcab-modules/midiin-c9mlq3ojn"
+        },
+        {
+            "state": {
+                "seqSteps": [
+                    0,
+                    0.19,
+                    0.73,
+                    1
+                ]
+            },
+            "position": {
+                "x": 512,
+                "y": 0
+            },
+            "id": "@banksean-patchcab-modules/cvsequencer-4zm76lwtj"
+        },
+        {
+            "state": {
+                "seqSteps": [
+                    1,
+                    0.73,
+                    0.32,
+                    0
+                ]
+            },
+            "position": {
+                "x": 896,
+                "y": 0
+            },
+            "id": "@banksean-patchcab-modules/cvsequencer-fnch54vd8"
+        }
+    ],
+    "patches": [{
+            "input": "@patchcab-modules/adsr-c6bl1i9uy://gate",
+            "output": "patchcab-modules/polyrhythm-q8sxc15jt://out-gate-0"
+        },
+        {
+            "input": "@patchcab-modules/vol-5zfyln2n6://cv-1",
+            "output": "@patchcab-modules/adsr-c6bl1i9uy://cv"
+        },
+        {
+            "input": "@patchcab-modules/vol-5zfyln2n6://audio-in",
+            "output": "@patchcab-modules/osc-za2bsmcr0://audio-out"
+        },
+        {
+            "input": "@banksean-patchcab-modules/polyrhythm-z3idpoc4p://clock",
+            "output": "@patchcab-modules/clock-kn486qemk://gate-out-1"
+        },
+        {
+            "input": "@patchcab-modules/vol-vu8rtq583://audio-in",
+            "output": "@patchcab-modules/osc-lf3ccmj09://audio-out"
+        },
+        {
+            "input": "@patchcab-modules/vol-vu8rtq583://cv-1",
+            "output": "@patchcab-modules/adsr-vcljwcdoz://cv"
+        },
+        {
+            "input": "@patchcab-modules/osc-lf3ccmj09://signal-in",
+            "output": "@banksean-patchcab-modules/cvsequencer-fnch54vd8://out-cv"
+        },
+        {
+            "input": "@patchcab-modules/osc-za2bsmcr0://signal-in",
+            "output": "@banksean-patchcab-modules/cvsequencer-4zm76lwtj://out-cv"
+        },
+        {
+            "input": "@patchcab-modules/vol-ppu092qar://audio-in",
+            "output": "patchcab-modules/partialsosc-ptfqyj5ob://out-cv"
+        },
+        {
+            "input": "@patchcab-modules/out-t93osghm8://audio-in",
+            "output": "@patchcab-modules/vol-ppu092qar://audio-out"
+        },
+        {
+            "input": "@patchcab-modules/vol-ppu092qar://cv-1",
+            "output": "@patchcab-modules/adsr-fjtkmpgtw://cv"
+        },
+        {
+            "input": "@patchcab-modules/vol-ppu092qar://audio-in",
+            "output": "patchcab-modules/overtonesosc-rj6tks4qd://out-cv"
+        },
+        {
+            "input": "@patchcab-modules/adsr-fjtkmpgtw://gate",
+            "output": "patchcab-modules/bankseanmidi-d9gvicj73://gate"
+        },
+        {
+            "input": "@patchcab-modules/adsr-fjtkmpgtw://gate",
+            "output": "patchcab-modules/midiin-2il3s1347://gate"
+        },
+        {
+            "input": "@patchcab-modules/adsr-fjtkmpgtw://gate",
+            "output": "@banksean-patchcab-modules/midiin-c9mlq3ojn://gate"
+        },
+        {
+            "input": "@banksean-patchcab-modules/harmonicosc-pa29uwb05://in-cv",
+            "output": "@banksean-patchcab-modules/midiin-c9mlq3ojn://cv-note"
+        },
+        {
+            "input": "@patchcab-modules/adsr-c6bl1i9uy://gate",
+            "output": "@banksean-patchcab-modules/polyrhythm-z3idpoc4p://out-gate-0"
+        },
+        {
+            "input": "@banksean-patchcab-modules/cvsequencer-4zm76lwtj://advance",
+            "output": "@banksean-patchcab-modules/polyrhythm-z3idpoc4p://out-gate-0"
+        },
+        {
+            "input": "@patchcab-modules/adsr-vcljwcdoz://gate",
+            "output": "@banksean-patchcab-modules/polyrhythm-z3idpoc4p://out-gate-1"
+        },
+        {
+            "input": "@banksean-patchcab-modules/cvsequencer-fnch54vd8://advance",
+            "output": "@banksean-patchcab-modules/polyrhythm-z3idpoc4p://out-gate-1"
+        },
+        {
+            "input": "@patchcab-modules/out-t93osghm8://audio-in",
+            "output": "@patchcab-modules/vol-vu8rtq583://audio-out"
+        },
+        {
+            "input": "@patchcab-modules/out-t93osghm8://audio-in",
+            "output": "@patchcab-modules/vol-5zfyln2n6://audio-out"
+        }
+    ]
+}

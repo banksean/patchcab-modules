@@ -3112,11 +3112,6 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-webmidi@^2.5.2:
-  version "2.5.2"
-  resolved "https://registry.yarnpkg.com/webmidi/-/webmidi-2.5.2.tgz#0323e906185f0c4ed4224fcbfd1595a250ff5dce"
-  integrity sha512-T/KhiljH0cdaJxB5zl9BEpbFOpKovop8pqCcWLjNPIB8XduIGGg8DkA/NCvy5t2onYCXmn+oMYJ3oYcaIWSvlA==
-
 which@^1.2.9:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/which/-/which-1.3.1.tgz#a45043d54f5805316da8d62f9f50918d3da70b0a"

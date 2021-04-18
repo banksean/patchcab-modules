@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Faceplate, Knob, Patch } from '@patchcab/core';
-  import { Signal, Oscillator, Scale} from 'Tone';
+  import { Signal, ScaleExp, Oscillator, Scale, Frequency} from 'Tone';
   import Fader from './Fader.svelte';
 
   const PARTIALS = 16;
@@ -10,33 +10,30 @@
     // of the fundamental frequency.
     // Partials contains the amplitue of each partial, from lowest to highest.
     partials: Array(PARTIALS).fill(0).map(()=>Math.random()),
-    fundamental: 110,
-    fm: 1
+    fundamental: 0,
   };
 
-  const MIN = 2;
-  const MAX = 120;
+  const MIN = 20;
+  const MAX = 200;
   
   const oscillator = new Oscillator(state.fundamental).start();
   oscillator.partialCount = PARTIALS;
 
-  const scale = new Scale(MIN, MAX);
-
+  const input = new Signal();
   const scales = Array(PARTIALS).fill(0).map(()=>new Scale(0.0, 1.0));
 
   $: oscillator.frequency.value = state.fundamental;
   $: oscillator.type = 'custom';
+
   // TODO: figure out how to drive partials by incoming CV. Since these are
   // not "a-rate" parameters in the WebAudio API, it's not obvious how to do this here.
   $: oscillator.partials = [...state.partials.map((p, i) => {return p})]; 
-  $: scale.min = Math.max(MIN, state.fundamental - state.fundamental * state.fm);
-  $: scale.max = Math.min(MAX, state.fundamental + (MAX - state.fundamental) * state.fm);
 
   const onConnect = (nodes: number) => {
     if (nodes) {
-      scale.connect(oscillator.frequency);
+      input.connect(oscillator.frequency);
     } else {
-      scale.disconnect(oscillator.frequency);
+      input.disconnect(oscillator.frequency);
       oscillator.frequency.overridden = false;
       oscillator.frequency.value = state.fundamental;
     }
@@ -62,7 +59,7 @@
           y={10}
           x={0}
           bind:value={state.fundamental} min={MIN} max={MAX} steps={500} 
-          label="FUND"/>
+          label="f"/>
         {#each state.partials as _, partialIndex}
             <Fader
               y={10}
@@ -81,8 +78,7 @@
              />
         {/each}
         </partials>
-        <Patch x={28} y={290} name="in-cv" input={scale}  {onConnect} />
-        <Knob size="s" x={18} y={320} label="" bind:value={state.fm} min={0} max={1.0} precision={2}></Knob>
+        <Patch x={28} y={290} name="in-cv" input={input} {onConnect} />
         <Patch label="out" x={(PARTIALS+1)*48} y={330} name="out-cv" output={oscillator} />
     </Faceplate>
   
