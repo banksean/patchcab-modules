@@ -6,6 +6,8 @@
   const PARTIALS = 16;
   
   export let state = {
+    // More precisely, these are *harmonic* partials, or whole number multiples
+    // of the fundamental frequency.
     // Partials contains the amplitue of each partial, from lowest to highest.
     partials: Array(PARTIALS).fill(0).map(()=>Math.random()),
     fundamental: 110,

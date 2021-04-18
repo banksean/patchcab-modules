@@ -30,8 +30,8 @@
             ]
         },
         {
-            "name": "bankseanMIDI",
-            "file": "MIDI",
+            "name": "MIDIIn",
+            "file": "MIDIIn",
             "size": {
                 "w": 6,
                 "h": 1
