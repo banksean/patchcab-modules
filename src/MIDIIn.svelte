@@ -18,7 +18,7 @@
     const noteCv = new Signal();
     const velCv = new Signal();
     const modCv = new Signal();
-    let keyDown = false;
+    let keysDown = new Set();
 
     function onMIDISuccess(midiAccess) {
         inputs = midiAccess.inputs;
@@ -67,16 +67,34 @@
     }
 
     function noteOn(note, velocity) {
-        gateOut.bang(now(), true, false);
+        keysDown.add(note);
+        if (keysDown.size == 1) {
+            gateOut.bang(now(), true, false);
+        }
+        // TODO: Glide
         noteCv.setValueAtTime(Frequency(note, "midi").toFrequency(), now());
         velCv.setValueAtTime(velocity/127.0, now());
-        keyDown = true;
+        // Sigh, this is so Svelte's templating or whatever it is updates the
+        // gate's indicator light.
+        keysDown = new Set(keysDown);
     }
 
     function noteOff(note, velocity) {
-        gateOut.bang(now(), false, true);
+        keysDown.delete(note);
+        if (keysDown.size == 0) {
+            gateOut.bang(now(), false, true);
+        }
         velCv.setValueAtTime(velocity/127.0, now());
-        keyDown = false;
+        // If there were other keys still down, switch
+        // output CV to match it's respective frequency.
+        const stillDown = Array.from(keysDown);
+        if (stillDown.length > 0) {
+            // TODO: Glide
+            noteCv.setValueAtTime(Frequency(stillDown[0], "midi").toFrequency(), now());
+        }
+        // Sigh, this is so Svelte's templating or whatever it is updates the
+        // gate's indicator light.
+         keysDown = new Set(keysDown);
     }
 
     function controlChange(control, value) {
@@ -114,7 +132,7 @@
         label="ch {state.channel + 1}"
     ></Knob>
     <Patch y={120} output={gateOut} name="gate" label="gate"></Patch>
-    <Indicator y={128} x={40} active={keyDown}></Indicator>
+    <Indicator y={128} x={40} active={keysDown.size > 0}></Indicator>
     <Patch y={170} output={noteCv} name="cv-note" label="f"></Patch>
     <Patch y={220} output={velCv} name="cv-vel" label="vel"></Patch>
     <Switch
