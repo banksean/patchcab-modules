@@ -85,7 +85,7 @@
         "svelteSortOrder": "options-scripts-styles-markup"
     },
     "dependencies": {
-        "@patchcab/core": "^1.0.5"
+        "@patchcab/core": "../patchcab/core"
     },
     "devDependencies": {
         "@patchcab/modules": "^1.0.5"
