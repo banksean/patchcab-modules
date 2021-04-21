@@ -17,8 +17,7 @@
         "build": "patchcab --build",
         "prepublish": "yarn build"
     },
-    "patchcab": [
-        {
+    "patchcab": [{
             "name": "Polyrhythm",
             "file": "Polyrhythm",
             "size": {
