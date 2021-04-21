@@ -17,7 +17,6 @@
     "main": "lib/lib.js",
     "types": "lib/lib.d.ts",
     "scripts": {
-        "dev": "rollup -c -w",
         "test": "svelte-check && tsc --noEmit",
         "build": "yarn build:lib",
         "build:lib": "tsc --project ./config/lib.tsconfig.json && cpy './src/components/*.svelte' './lib/components/'",
