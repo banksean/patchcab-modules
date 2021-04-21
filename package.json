@@ -9,89 +9,10 @@
     "private": false,
     "author": "banksean (https://banksean.com)",
     "license": "MIT",
-    "files": [
-        "modules"
-    ],
-    "scripts": {
-        "start": "patchcab --rack testpatch.json",
-        "build": "patchcab --build",
-        "prepublish": "yarn build"
-    },
-    "patchcab": [
-        {
-            "name": "Polyrhythm",
-            "file": "Polyrhythm",
-            "size": {
-                "w": 20,
-                "h": 1
-            },
-            "tags": [
-                "sequencer"
-            ],
-            "libs": [
-                "Tone"
-            ]
-        },
-        {
-            "name": "MIDIIn",
-            "file": "MIDIIn",
-            "size": {
-                "w": 6,
-                "h": 1
-            },
-            "tags": [
-                "utility"
-            ],
-            "libs": [
-                "Tone"
-            ]
-        },
-        {
-            "name": "CVSequencer",
-            "file": "CVSequencer",
-            "size": {
-                "w": 6,
-                "h": 1
-            },
-            "tags": [
-                "sequencer"
-            ],
-            "libs": [
-                "Tone"
-            ]
-        },
-        {
-            "name": "HarmonicOSC",
-            "file": "HarmonicOSC",
-            "size": {
-                "w": 54,
-                "h": 1
-            },
-            "tags": [
-                "oscillator"
-            ],
-            "libs": [
-                "Tone"
-            ]
-        }
-    ],
-    "prettier": {
-        "useTabs": false,
-        "arrowParens": "always",
-        "semi": true,
-        "bracketSpacing": true,
-        "singleQuote": true,
-        "printWidth": 120,
-        "svelteSortOrder": "options-scripts-styles-markup"
-    },
-    "dependencies": {
-        "@patchcab/core": "../patchcab/core"
-    },
+    "dependencies": {},
     "devDependencies": {
-        "@patchcab/modules": "^1.0.5",
         "lerna": "^4.0.0"
     },
-    "main": "index.js",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/banksean/patchcab-modules.git"
