@@ -1,7 +1,7 @@
 {
-    "name": "@banksean/patchcab-modules",
+    "name": "@banksean/patchcab-cvsequencer",
     "scope": "@banksean",
-    "description": "Patchab modules",
+    "description": "CV Sequencer module for patchcab",
     "version": "1.0.0",
     "publishConfig": {
         "access": "public"
@@ -17,64 +17,20 @@
         "build": "patchcab --build",
         "prepublish": "yarn build"
     },
-    "patchcab": [
-        {
-            "name": "Polyrhythm",
-            "file": "Polyrhythm",
-            "size": {
-                "w": 20,
-                "h": 1
-            },
-            "tags": [
-                "sequencer"
-            ],
-            "libs": [
-                "Tone"
-            ]
+    "patchcab": [{
+        "name": "CVSequencer",
+        "file": "CVSequencer",
+        "size": {
+            "w": 6,
+            "h": 1
         },
-        {
-            "name": "MIDIIn",
-            "file": "MIDIIn",
-            "size": {
-                "w": 6,
-                "h": 1
-            },
-            "tags": [
-                "utility"
-            ],
-            "libs": [
-                "Tone"
-            ]
-        },
-        {
-            "name": "CVSequencer",
-            "file": "CVSequencer",
-            "size": {
-                "w": 6,
-                "h": 1
-            },
-            "tags": [
-                "sequencer"
-            ],
-            "libs": [
-                "Tone"
-            ]
-        },
-        {
-            "name": "HarmonicOSC",
-            "file": "HarmonicOSC",
-            "size": {
-                "w": 54,
-                "h": 1
-            },
-            "tags": [
-                "oscillator"
-            ],
-            "libs": [
-                "Tone"
-            ]
-        }
-    ],
+        "tags": [
+            "sequencer"
+        ],
+        "libs": [
+            "Tone"
+        ]
+    }],
     "prettier": {
         "useTabs": false,
         "arrowParens": "always",
@@ -85,7 +41,7 @@
         "svelteSortOrder": "options-scripts-styles-markup"
     },
     "dependencies": {
-        "@patchcab/core": "../patchcab/core"
+        "@patchcab/core": "^1.0.5"
     },
     "devDependencies": {
         "@patchcab/modules": "^1.0.5",

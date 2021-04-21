@@ -1,7 +1,7 @@
 {
-    "name": "@banksean/patchcab-modules",
+    "name": "@banksean/patchcab-ui",
     "scope": "@banksean",
-    "description": "Patchab modules",
+    "description": "Patchab ui components",
     "version": "1.0.0",
     "publishConfig": {
         "access": "public"
@@ -10,71 +10,19 @@
     "author": "banksean (https://banksean.com)",
     "license": "MIT",
     "files": [
-        "modules"
+        "bin",
+        "lib",
+        "public"
     ],
+    "main": "lib/lib.js",
+    "types": "lib/lib.d.ts",
     "scripts": {
-        "start": "patchcab --rack testpatch.json",
-        "build": "patchcab --build",
+        "dev": "rollup -c -w",
+        "test": "svelte-check && tsc --noEmit",
+        "build": "yarn build:lib",
+        "build:lib": "tsc --project ./config/lib.tsconfig.json && cpy './src/components/*.svelte' './lib/components/'",
         "prepublish": "yarn build"
     },
-    "patchcab": [
-        {
-            "name": "Polyrhythm",
-            "file": "Polyrhythm",
-            "size": {
-                "w": 20,
-                "h": 1
-            },
-            "tags": [
-                "sequencer"
-            ],
-            "libs": [
-                "Tone"
-            ]
-        },
-        {
-            "name": "MIDIIn",
-            "file": "MIDIIn",
-            "size": {
-                "w": 6,
-                "h": 1
-            },
-            "tags": [
-                "utility"
-            ],
-            "libs": [
-                "Tone"
-            ]
-        },
-        {
-            "name": "CVSequencer",
-            "file": "CVSequencer",
-            "size": {
-                "w": 6,
-                "h": 1
-            },
-            "tags": [
-                "sequencer"
-            ],
-            "libs": [
-                "Tone"
-            ]
-        },
-        {
-            "name": "HarmonicOSC",
-            "file": "HarmonicOSC",
-            "size": {
-                "w": 54,
-                "h": 1
-            },
-            "tags": [
-                "oscillator"
-            ],
-            "libs": [
-                "Tone"
-            ]
-        }
-    ],
     "prettier": {
         "useTabs": false,
         "arrowParens": "always",
@@ -85,13 +33,17 @@
         "svelteSortOrder": "options-scripts-styles-markup"
     },
     "dependencies": {
-        "@patchcab/core": "../patchcab/core"
+        "@patchcab/core": "^1.0.5",
+        "@tsconfig/svelte": "^1.0.10",
+        "cpy-cli": "^3.1.1",
+        "svelte": "^3.37.0",
+        "svelte-check": "^1.4.0",
+        "svelte-preprocess": "^4.7.2"
     },
     "devDependencies": {
         "@patchcab/modules": "^1.0.5",
         "lerna": "^4.0.0"
     },
-    "main": "index.js",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/banksean/patchcab-modules.git"
