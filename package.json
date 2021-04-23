@@ -1,5 +1,5 @@
 {
-    "name": "@banksean/patchcab-modules",
+    "name": "patchcab-modules",
     "scope": "@banksean",
     "description": "Patchab modules",
     "version": "1.0.0",
@@ -9,7 +9,9 @@
     "private": false,
     "author": "banksean (https://banksean.com)",
     "license": "MIT",
-    "dependencies": {},
+    "dependencies": {
+        "rollup": "^2.45.2"
+    },
     "devDependencies": {
         "lerna": "^4.0.0"
     },

@@ -17,22 +17,20 @@
         "build": "patchcab --build",
         "prepublish": "yarn build"
     },
-    "patchcab": [
-        {
-            "name": "Polyrhythm",
-            "file": "Polyrhythm",
-            "size": {
-                "w": 20,
-                "h": 1
-            },
-            "tags": [
-                "sequencer"
-            ],
-            "libs": [
-                "Tone"
-            ]
-        }
-    ],
+    "patchcab": [{
+        "name": "Polyrhythm",
+        "file": "Polyrhythm",
+        "size": {
+            "w": 20,
+            "h": 1
+        },
+        "tags": [
+            "sequencer"
+        ],
+        "libs": [
+            "Tone"
+        ]
+    }],
     "prettier": {
         "useTabs": false,
         "arrowParens": "always",
@@ -46,7 +44,6 @@
         "@patchcab/core": "^1.0.5"
     },
     "devDependencies": {
-        "@patchcab/modules": "^1.0.5",
         "lerna": "^4.0.0"
     },
     "main": "index.js",
