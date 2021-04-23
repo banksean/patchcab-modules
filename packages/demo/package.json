@@ -1,0 +1,44 @@
+{
+    "name": "@banksean/patchcab-demo",
+    "scope": "@banksean",
+    "description": "demo package for patchcab modules",
+    "version": "1.0.0",
+    "publishConfig": {
+        "access": "public"
+    },
+    "private": false,
+    "author": "banksean (https://banksean.com)",
+    "license": "MIT",
+    "files": [
+        "modules"
+    ],
+    "scripts": {
+        "start": "patchcab --rack testpatch.json",
+        "build": "patchcab --build",
+        "prepublish": "yarn build"
+    },
+    "prettier": {
+        "useTabs": false,
+        "arrowParens": "always",
+        "semi": true,
+        "bracketSpacing": true,
+        "singleQuote": true,
+        "printWidth": 120,
+        "svelteSortOrder": "options-scripts-styles-markup"
+    },
+    "dependencies": {
+        "@patchcab/core": "^1.0.5"
+    },
+    "devDependencies": {
+        "lerna": "^4.0.0"
+    },
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/banksean/patchcab-modules.git"
+    },
+    "bugs": {
+        "url": "https://github.com/banksean/patchcab-modules/issues"
+    },
+    "homepage": "https://github.com/banksean/patchcab-modules#readme"
+}
