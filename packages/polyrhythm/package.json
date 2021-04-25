@@ -18,20 +18,22 @@
         "prepublish": "yarn build",
         "postinstall": "touch ./.metadata_never_index"
     },
-    "patchcab": [{
-        "name": "Polyrhythm",
-        "file": "Polyrhythm",
-        "size": {
-            "w": 20,
-            "h": 1
-        },
-        "tags": [
-            "sequencer"
-        ],
-        "libs": [
-            "Tone"
-        ]
-    }],
+    "patchcab": [
+        {
+            "name": "Polyrhythm",
+            "file": "Polyrhythm",
+            "size": {
+                "w": 20,
+                "h": 1
+            },
+            "tags": [
+                "sequencer"
+            ],
+            "libs": [
+                "Tone"
+            ]
+        }
+    ],
     "prettier": {
         "useTabs": false,
         "arrowParens": "always",
