@@ -41,7 +41,7 @@
         "svelteSortOrder": "options-scripts-styles-markup"
     },
     "dependencies": {
-        "@banksean/patchcab-ui": "*",
+        "@banksean/patchcab-ui": "../ui",
         "@patchcab/core": "^1.0.5"
     },
     "devDependencies": {
