@@ -15,7 +15,8 @@
     "scripts": {
         "start": "patchcab --rack testpatch.json",
         "build": "patchcab --build",
-        "prepublish": "yarn build"
+        "prepublish": "yarn build",
+        "postinstall": "touch ./.metadata_never_index"
     },
     "patchcab": [{
         "name": "CVSequencer",

@@ -20,7 +20,8 @@
         "test": "svelte-check && tsc --noEmit",
         "build": "yarn build:lib",
         "build:lib": "tsc --project ./config/lib.tsconfig.json && cpy './src/components/*.svelte' './lib/components/'",
-        "prepublish": "yarn build"
+        "prepublish": "yarn build",
+        "postinstall": "touch ./.metadata_never_index"
     },
     "prettier": {
         "useTabs": false,
