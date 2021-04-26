@@ -2,7 +2,7 @@
     "name": "@banksean/patchcab-additiveosc",
     "scope": "@banksean",
     "description": "Additive synthesis oscillator for patchcab",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "publishConfig": {
         "access": "public"
     },
@@ -18,20 +18,22 @@
         "prepublish": "yarn build",
         "postinstall": "touch ./.metadata_never_index"
     },
-    "patchcab": [{
-        "name": "AdditiveOSC",
-        "file": "AdditiveOSC",
-        "size": {
-            "w": 54,
-            "h": 1
-        },
-        "tags": [
-            "oscillator"
-        ],
-        "libs": [
-            "Tone"
-        ]
-    }],
+    "patchcab": [
+        {
+            "name": "AdditiveOSC",
+            "file": "AdditiveOSC",
+            "size": {
+                "w": 54,
+                "h": 1
+            },
+            "tags": [
+                "oscillator"
+            ],
+            "libs": [
+                "Tone"
+            ]
+        }
+    ],
     "prettier": {
         "useTabs": false,
         "arrowParens": "always",

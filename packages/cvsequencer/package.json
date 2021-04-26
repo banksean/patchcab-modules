@@ -2,7 +2,7 @@
     "name": "@banksean/patchcab-cvsequencer",
     "scope": "@banksean",
     "description": "CV Sequencer module for patchcab",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "publishConfig": {
         "access": "public"
     },
@@ -18,20 +18,22 @@
         "prepublish": "yarn build",
         "postinstall": "touch ./.metadata_never_index"
     },
-    "patchcab": [{
-        "name": "CVSequencer",
-        "file": "CVSequencer",
-        "size": {
-            "w": 6,
-            "h": 1
-        },
-        "tags": [
-            "sequencer"
-        ],
-        "libs": [
-            "Tone"
-        ]
-    }],
+    "patchcab": [
+        {
+            "name": "CVSequencer",
+            "file": "CVSequencer",
+            "size": {
+                "w": 6,
+                "h": 1
+            },
+            "tags": [
+                "sequencer"
+            ],
+            "libs": [
+                "Tone"
+            ]
+        }
+    ],
     "prettier": {
         "useTabs": false,
         "arrowParens": "always",

@@ -2,7 +2,7 @@
     "name": "@banksean/patchcab-midiin",
     "scope": "@banksean",
     "description": "MIDI input module for patchcab",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "publishConfig": {
         "access": "public"
     },
@@ -18,20 +18,22 @@
         "prepublish": "yarn build",
         "postinstall": "touch ./.metadata_never_index"
     },
-    "patchcab": [{
-        "name": "MIDIIn",
-        "file": "MIDIIn",
-        "size": {
-            "w": 6,
-            "h": 1
-        },
-        "tags": [
-            "utility"
-        ],
-        "libs": [
-            "Tone"
-        ]
-    }],
+    "patchcab": [
+        {
+            "name": "MIDIIn",
+            "file": "MIDIIn",
+            "size": {
+                "w": 6,
+                "h": 1
+            },
+            "tags": [
+                "utility"
+            ],
+            "libs": [
+                "Tone"
+            ]
+        }
+    ],
     "prettier": {
         "useTabs": false,
         "arrowParens": "always",
