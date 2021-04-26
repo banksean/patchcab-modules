@@ -1,3 +1,5 @@
 node_modules
 modules/*.js
 public
+.metadata_never_index
+*.log
