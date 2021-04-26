@@ -1,0 +1,62 @@
+{
+    "name": "@banksean/patchcab-midiin",
+    "scope": "@banksean",
+    "description": "MIDI input module for patchcab",
+    "version": "0.0.1",
+    "publishConfig": {
+        "access": "public"
+    },
+    "private": false,
+    "author": "banksean (https://banksean.com)",
+    "license": "MIT",
+    "files": [
+        "modules"
+    ],
+    "scripts": {
+        "start": "patchcab --rack testpatch.json",
+        "build": "patchcab --build",
+        "prepublish": "yarn build",
+        "postinstall": "touch ./.metadata_never_index"
+    },
+    "patchcab": [
+        {
+            "name": "MIDIIn",
+            "file": "MIDIIn",
+            "size": {
+                "w": 6,
+                "h": 1
+            },
+            "tags": [
+                "utility"
+            ],
+            "libs": [
+                "Tone"
+            ]
+        }
+    ],
+    "prettier": {
+        "useTabs": false,
+        "arrowParens": "always",
+        "semi": true,
+        "bracketSpacing": true,
+        "singleQuote": true,
+        "printWidth": 120,
+        "svelteSortOrder": "options-scripts-styles-markup"
+    },
+    "dependencies": {
+        "@banksean/patchcab-ui": "../ui",
+        "@patchcab/core": "^1.0.5"
+    },
+    "devDependencies": {
+        "lerna": "^4.0.0"
+    },
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/banksean/patchcab-modules.git"
+    },
+    "bugs": {
+        "url": "https://github.com/banksean/patchcab-modules/issues"
+    },
+    "homepage": "https://github.com/banksean/patchcab-modules#readme"
+}

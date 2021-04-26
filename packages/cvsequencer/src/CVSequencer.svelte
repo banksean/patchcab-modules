@@ -1,7 +1,7 @@
 <script lang="ts">
     import { Faceplate, Knob, Patch, Bang } from '@patchcab/core';
     import { Signal, } from 'Tone';
-    import Indicator from './Indicator.svelte';
+    import { Indicator } from '@banksean/patchcab-ui';
  
     const STEPS = 4;
   

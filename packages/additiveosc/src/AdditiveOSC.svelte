@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { Faceplate, Knob, Patch } from '@patchcab/core';
+  import { Faceplate, Patch } from '@patchcab/core';
   import { Signal, ScaleExp, Oscillator, Scale, Frequency} from 'Tone';
-  import Fader from './Fader.svelte';
+  import { Fader } from '@banksean/patchcab-ui';
 
   const PARTIALS = 16;
   
@@ -53,7 +53,7 @@
     }  
   </style>
   
-  <Faceplate title="HARMONIC OSC" color="#1D1E22">
+  <Faceplate title="ADDITIVE OSC" color="#1D1E22">
       <partials>
         <Fader
           y={10}

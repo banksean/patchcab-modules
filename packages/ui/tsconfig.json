@@ -1,0 +1,21 @@
+{
+    "extends": "@tsconfig/svelte/tsconfig.json",
+    "compilerOptions": {
+      "noImplicitAny": true,
+      "lib": ["es6", "dom", "es2019"],
+      "module": "es2015",
+      "target": "es2019",
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "outDir": "./public/js",
+      "importsNotUsedAsValues": "error",
+      "isolatedModules": true,
+      "forceConsistentCasingInFileNames": true,
+      "baseUrl": "src",
+      "paths": {
+        "@banksean/patchcab-ui": ["./"]
+      }
+    },
+    "include": ["src/**/*", "src/node_modules"],
+    "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
+  }

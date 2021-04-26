@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "baseUrl": "src",
+    "paths": {
+        "@banksean/patchcab-ui": ["../ui"]
+      }
+    },
+    "include": ["src/**/*", "src/node_modules"],
+    "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
+}

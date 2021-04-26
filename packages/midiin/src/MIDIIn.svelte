@@ -2,7 +2,8 @@
     import { Faceplate, Knob, Patch, Switch } from '@patchcab/core';
     import { Signal, Clock, Oscillator, Frequency, now } from 'Tone';
     import { Bang } from '../public/js/core';
-    import Indicator from './Indicator.svelte';
+    import { Indicator } from '@banksean/patchcab-ui';
+    
     let inputs, outputs;
 
     export let state = {
