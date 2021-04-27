@@ -16,12 +16,18 @@
         .then(onMIDISuccess, onMIDIFailure);
 
     const gateOut = new Bang();
+    const start = new Bang();
+    const stop = new Bang();
+    const clock = new Bang();
     const noteCv = new Signal();
     const velCv = new Signal();
     const modCv = new Signal();
     let keysDown = new Set();
 
+    let midiStatus = 'connecting...';
+
     function onMIDISuccess(midiAccess) {
+        midiStatus = 'connected';
         inputs = midiAccess.inputs;
         outputs = midiAccess.outputs;
         for (var input of midiAccess.inputs.values()) {
@@ -38,6 +44,25 @@
         // https://www.midi.org/specifications-old/item/table-1-summary-of-midi-message
         // There may exist some libraries to help with this, but keeping the dependencies
         // low for maintenance's sake.
+
+        // System Messages:
+        if (midiMessage.data[0] >> 4 == 0xf) {
+            console.log('system message', midiMessage.data, midiMessage.data[0] & 0xf);
+            switch (midiMessage.data[0] & 0xf) {
+                case 8:
+                    clock.bang(now(), true, false);
+                    break;
+                case 10:
+                    start.bang(now(), true, false);
+                    break;
+                case 12:
+                    stop.bang(now(), true, false);
+                    break;
+            }
+            return;
+        }
+
+        // Channel Voice Messages:
         const channel =  midiMessage.data[0] & 0xf;
         if (channel != state.channel) {
             return;
@@ -113,6 +138,7 @@
 
     function onMIDIFailure() {
         console.log('Could not access your MIDI devices.');
+        midiStatus = 'disconnected';
     }
 </script>
 <style>
@@ -124,7 +150,7 @@
 </style>
 <Faceplate title="MIDI IN" color="#1D1E22">
     <midi>
-    <Indicator x={20} active={inputs != undefined} label="connected"/>
+    <Indicator x={20} active={inputs != undefined} label="{midiStatus}"/>
     <Knob size="s"
         y={40}
         x={4}
@@ -144,8 +170,12 @@
         value={state.velocityAftertouch === true}
         onToggle={()=> {state.velocityAftertouch = !state.velocityAftertouch}}
         square
-        label="aft"
+        label="aftch"
     />
     <Patch y={270} output={modCv} name="cv-mod" label="mod"></Patch>
+
+    <Patch x={80} y={120} output={start} name="start" label="start"></Patch>
+    <Patch x={80} y={170} output={stop} name="stop" label="stop"></Patch>
+    <Patch x={80} y={220} output={clock} name="clock" label="clck"></Patch>
     </midi>
 </Faceplate>

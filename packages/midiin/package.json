@@ -23,7 +23,7 @@
             "name": "MIDIIn",
             "file": "MIDIIn",
             "size": {
-                "w": 6,
+                "w": 9,
                 "h": 1
             },
             "tags": [
@@ -45,7 +45,8 @@
     },
     "dependencies": {
         "@banksean/patchcab-ui": "../ui",
-        "@patchcab/core": "../../../patchcab/core"
+        "@patchcab/core": "../../../patchcab/core",
+        "@patchcab/modules": "../../../patchcab/modules"
     },
     "devDependencies": {
         "lerna": "^4.0.0"
