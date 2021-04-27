@@ -73,7 +73,9 @@
             gateOut.bang(now(), true, false);
         }
         // TODO: Glide
-        noteCv.setValueAtTime(Frequency(note, "midi").toFrequency(), now());
+        let p = Frequency(note, "midi").toFrequency();
+        console.log('note on', p);
+        noteCv.setValueAtTime(p, now());
         velCv.setValueAtTime(velocity/127.0, now());
         // Sigh, this is so Svelte's templating or whatever it is updates the
         // gate's indicator light.
