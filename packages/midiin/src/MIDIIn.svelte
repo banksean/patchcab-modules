@@ -24,6 +24,7 @@
     const stop = new Bang();
     const clock = new Bang();
     const noteCv = new Signal();
+    const unitCv = new Signal();
     const velCv = new Signal();
     const modCv = new Signal();
     let keysDown = new Set();
@@ -127,6 +128,7 @@
         // And even if we re-map the midi note values to 0,1 that's going to produce a non-standard scale that doesn't track with anything else.
         // Contrast this to VCV Rack's more direct reflection of Eurorack standards: https://vcvrack.com/manual/VoltageStandards
         noteCv.setValueAtTime(p, now());
+        unitCv.setValueAtTime(note/127.0, now());
         velCv.setValueAtTime(velocity/127.0, now());
         // Sigh, this is so Svelte's templating or whatever it is updates the
         // gate's indicator light.
@@ -178,10 +180,10 @@
 </style>
 <Faceplate title="MIDI IN" color="#1D1E22">
     <midi>
-    <Indicator x={20} active={inputs != undefined} label="{midiStatus}"/>
+    <Indicator x={40} active={inputs != undefined} label="{midiStatus}"/>
     <Knob size="s"
         y={40}
-        x={4}
+        x={24}
         bind:value={state.channel}
         min={0}
         max={15}
@@ -191,6 +193,7 @@
     <Patch y={120} output={gateOut} name="gate" label="gate"></Patch>
     <Indicator y={128} x={40} active={keysDown.size > 0}></Indicator>
     <Patch y={170} output={noteCv} name="cv-note" label="f"></Patch>
+    <Patch y={170} x={40} output={unitCv} name="cv-unit" label="unit"></Patch>
     <Patch y={220} output={velCv} name="cv-vel" label="vel"></Patch>
     <Switch
         x={40}
