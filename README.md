@@ -58,7 +58,7 @@ from your patchcab project directory (...and probably rebuild/restart the server
 <img alt="screenshot of the Polyrhythm module" src="packages/polyrhythm/modules/polyrhythm.png" height="400">
 
 - gate sequencer inspired by the sequencer section of the [Moog Subharmonicon](https://www.moogmusic.com/products/subharmonicon)
-- "rhythm" knobs control the value of each of four distinct clock dividers
+- "divider" knobs control the value of each of four distinct clock dividers
   - discrete values the rage 1-16
   - produces an output clock pulse at the rising edge of every N input clock pulses
 - "offset" knobs control the offset (or phase) of each of the four clock dividers
@@ -68,8 +68,8 @@ from your patchcab project directory (...and probably rebuild/restart the server
 
 Familiarity with the actual Subharmonicon is very helpful here, as it's beyond the scope of this README, but some things to note:
 - The physical Subharmonicon device allows you to create rhythm offsets by quickly turning the division knobs between clock pulses while it's running.
-- If you power cycle the device or reset the sequencer, these offsets disappear. So the pattern generator has internal state not accessible directly from the controls on the front panel.
-- This quirk of the physical Subharmonicon has driven me nuts, and I wrote this module with Offset knobs specifically to demonstrate one way to address it.
+- If you power cycle the device or reset the sequencer, these offsets disappear. So the pattern generator has internal state not accessible directly from the controls on the front panel. And it goes "poof" way too easily.
+- This quirk of the physical Subharmonicon has driven me nuts, and I wrote this module with Offset knobs specifically to demonstrate one possible way to address it.
 
 # Development
 
