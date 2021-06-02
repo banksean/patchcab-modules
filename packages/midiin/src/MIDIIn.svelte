@@ -12,8 +12,12 @@
         input: 0 // If you have multiple midi interfaces, e.g.
     };
 
-    navigator.requestMIDIAccess()
-        .then(onMIDISuccess, onMIDIFailure);
+    // This isn't available during screenshotting, so without this guard
+    // it hangs and you get a 'loading' image instead of a picture of the module.
+    if (navigator.requestMIDIAccess) {
+        navigator.requestMIDIAccess()
+            .then(onMIDISuccess, onMIDIFailure);
+    }
 
     const gateOut = new Bang();
     const start = new Bang();
@@ -23,6 +27,8 @@
     const velCv = new Signal();
     const modCv = new Signal();
     let keysDown = new Set();
+
+    let lastClock = 0;
 
     let midiStatus = 'connecting...';
 
@@ -50,7 +56,19 @@
             console.log('system message', midiMessage.data, midiMessage.data[0] & 0xf);
             switch (midiMessage.data[0] & 0xf) {
                 case 8:
+                    // TODO: maybe add a built-in divider. MIDI is 24ppq, which is kinda fast.
+                    let n = now();
                     clock.bang(now(), true, false);
+                    if (lastClock) {
+                        /*
+                        120bpm = 120*24
+                        */
+                        let clcksps = 1000/(n-lastClock);
+                        let qps = clcksps/24;
+                        let bpm = qps/60;
+                        console.log('bpm', bpm);
+                    }
+                    lastClock = n;
                     break;
                 case 10:
                     start.bang(now(), true, false);
@@ -99,7 +117,15 @@
         }
         // TODO: Glide
         let p = Frequency(note, "midi").toFrequency();
-        console.log('note on', p);
+        console.log('note on', p); // This frequency looks correct, but OSC is playing something way too high.
+        // Ok I think I know what's up. OSC expects an fm input in [0, 1], and this is sending Hz, which is much higher.
+        // See https://github.com/spectrome/patchcab/blob/main/modules/src/OSC.svelte
+        // There's an oscillator set with a frequency value set by the big knob.
+        // There's an fm initialized to Scale(40, 2400), but changing the fm knob modifies it to be range:
+        //     [big knob - big knob * fm knob, big knob + (2400 - big knob) * fm knob]
+        // So if fm knob is set to 1, then the fm Scale will take the input signal and assume it's [0, 1], then map it linearly to the above range.
+        // And even if we re-map the midi note values to 0,1 that's going to produce a non-standard scale that doesn't track with anything else.
+        // Contrast this to VCV Rack's more direct reflection of Eurorack standards: https://vcvrack.com/manual/VoltageStandards
         noteCv.setValueAtTime(p, now());
         velCv.setValueAtTime(velocity/127.0, now());
         // Sigh, this is so Svelte's templating or whatever it is updates the
@@ -118,7 +144,9 @@
         const stillDown = Array.from(keysDown);
         if (stillDown.length > 0) {
             // TODO: Glide
-            noteCv.setValueAtTime(Frequency(stillDown[0], "midi").toFrequency(), now());
+            let p = Frequency(stillDown[0], "midi").toFrequency();
+            console.log('note off', p);
+            noteCv.setValueAtTime(p, now());
         }
         // Sigh, this is so Svelte's templating or whatever it is updates the
         // gate's indicator light.

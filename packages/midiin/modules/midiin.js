@@ -372,7 +372,7 @@ function add_css() {
 	__sv.append(document.head, style);
 }
 
-// (136:0) <Faceplate title="MIDI IN" color="#1D1E22">
+// (163:0) <Faceplate title="MIDI IN" color="#1D1E22">
 function create_default_slot(ctx) {
 	let midi;
 	let indicator0;
@@ -657,7 +657,7 @@ function create_fragment(ctx) {
 		p(ctx, [dirty]) {
 			const faceplate_changes = {};
 
-			if (dirty & /*$$scope, state, keysDown, inputs, midiStatus*/ 2097167) {
+			if (dirty & /*$$scope, state, keysDown, inputs, midiStatus*/ 4194319) {
 				faceplate_changes.$$scope = { dirty, ctx };
 			}
 
@@ -688,7 +688,12 @@ function instance($$self, $$props, $$invalidate) {
 		
 	} } = $$props;
 
-	navigator.requestMIDIAccess().then(onMIDISuccess, onMIDIFailure);
+	// This isn't available during screenshotting, so without this guard
+	// it hangs and you get a 'loading' image instead of a picture of the module.
+	if (navigator.requestMIDIAccess) {
+		navigator.requestMIDIAccess().then(onMIDISuccess, onMIDIFailure);
+	}
+
 	const gateOut = new io();
 	const start = new io();
 	const stop = new io();
@@ -697,6 +702,7 @@ function instance($$self, $$props, $$invalidate) {
 	const velCv = new Tone.Signal();
 	const modCv = new Tone.Signal();
 	let keysDown = new Set();
+	let lastClock = 0;
 	let midiStatus = "connecting...";
 
 	function onMIDISuccess(midiAccess) {
@@ -724,7 +730,20 @@ function instance($$self, $$props, $$invalidate) {
 
 			switch (midiMessage.data[0] & 15) {
 				case 8:
+					// TODO: maybe add a built-in divider. MIDI is 24ppq, which is kinda fast.
+					let n = Tone.now();
 					clock.bang(Tone.now(), true, false);
+					if (lastClock) {
+						/*
+120bpm = 120*24
+*/
+						let clcksps = 1000 / (n - lastClock);
+
+						let qps = clcksps / 24;
+						let bpm = qps / 60;
+						console.log("bpm", bpm);
+					}
+					lastClock = n;
 					break;
 				case 10:
 					start.bang(Tone.now(), true, false);
@@ -775,8 +794,18 @@ function instance($$self, $$props, $$invalidate) {
 		// TODO: Glide
 		let p = Tone.Frequency(note, "midi").toFrequency();
 
-		console.log("note on", p);
+		console.log("note on", p); // This frequency looks correct, but OSC is playing something way too high.
+
+		// Ok I think I know what's up. OSC expects an fm input in [0, 1], and this is sending Hz, which is much higher.
+		// See https://github.com/spectrome/patchcab/blob/main/modules/src/OSC.svelte
+		// There's an oscillator set with a frequency value set by the big knob.
+		// There's an fm initialized to Scale(40, 2400), but changing the fm knob modifies it to be range:
+		//     [big knob - big knob * fm knob, big knob + (2400 - big knob) * fm knob]
+		// So if fm knob is set to 1, then the fm Scale will take the input signal and assume it's [0, 1], then map it linearly to the above range.
+		// And even if we re-map the midi note values to 0,1 that's going to produce a non-standard scale that doesn't track with anything else.
+		// Contrast this to VCV Rack's more direct reflection of Eurorack standards: https://vcvrack.com/manual/VoltageStandards
 		noteCv.setValueAtTime(p, Tone.now());
+
 		velCv.setValueAtTime(velocity / 127, Tone.now());
 
 		// Sigh, this is so Svelte's templating or whatever it is updates the
@@ -799,7 +828,10 @@ function instance($$self, $$props, $$invalidate) {
 
 		if (stillDown.length > 0) {
 			// TODO: Glide
-			noteCv.setValueAtTime(Tone.Frequency(stillDown[0], "midi").toFrequency(), Tone.now());
+			let p = Tone.Frequency(stillDown[0], "midi").toFrequency();
+
+			console.log("note off", p);
+			noteCv.setValueAtTime(p, Tone.now());
 		}
 
 		// Sigh, this is so Svelte's templating or whatever it is updates the

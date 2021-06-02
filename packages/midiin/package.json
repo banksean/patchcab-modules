@@ -44,6 +44,8 @@
         "svelteSortOrder": "options-scripts-styles-markup"
     },
     "dependencies": {
+        "@banksean/patchcab-additiveosc": "../additiveosc",
+        "@banksean/patchcab-polyrhythm": "../polyrhythm",
         "@banksean/patchcab-ui": "../ui",
         "@patchcab/core": "../../../patchcab/core",
         "@patchcab/modules": "../../../patchcab/modules"
