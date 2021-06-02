@@ -1,10 +1,10 @@
 # patchcab-modules
 
-Modules for [Patchcab](https://github.com/spectrome/patchcab/).
+Some modules for [Patchcab](https://github.com/spectrome/patchcab/).
 
 Requiements:
 - A working installation of Patchab. [See its github page for details](https://github.com/spectrome/patchcab/).
-- For the Midi In module, you'll need some kind of midi controller visible to the Web Midi API.
+- For the Midi In module, you'll need some kind of midi controller visible to the [Web Midi API](https://developer.mozilla.org/en-US/docs/Web/API/MIDIAccess).
 
 To install any of these modules individually on top of your Patchcab project, run e.g.
 
@@ -72,6 +72,10 @@ or cd into indivudal packages/ directories and run `yarn build` from there.
 ## UI Framework
 
 Patchcab uses [Svelte](https://svelte.dev/), a UI framework I'd never used before this. I'm more of a Web Components, [a la carte web development](https://bitworking.org/news/2018/03/a-la-carte-web-development/) fan myself, but Svelte seems fine for this purpose and the Patchcab source has lots of examples to learn from.
+
+### @banksean/patchcab-ui
+
+`packages/ui` contains some UI widgets I needed to make these modules: an indicator light for "midi connected" or faders for the Additive Oscillator etc. I wouldn't recommend using this package outside of this repository though.
 
 ## Voltage, pitch signals etc (Hz, not "Volts")
 
