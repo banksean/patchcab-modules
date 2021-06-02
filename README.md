@@ -9,10 +9,10 @@ Requiements:
 To install any of these modules individually on top of your Patchcab project, run e.g.
 
 ```
-npm install @banksean/patchcab-additiveosc
-npm install @banksean/patchcab-cvsequencer
-npm install @banksean/patchcab-midiin
-npm install @banksean/patchcab-polyrhythm
+yarn install @banksean/patchcab-additiveosc
+yarn install @banksean/patchcab-cvsequencer
+yarn install @banksean/patchcab-midiin
+yarn install @banksean/patchcab-polyrhythm
 ```
 
 from your patchcab project directory (...and probably rebuild/restart the server etc).
@@ -20,6 +20,9 @@ from your patchcab project directory (...and probably rebuild/restart the server
 # Modules in this repo
 
 ## CVSequencer
+- [source](packages/cvsequencer)
+- @banksean/patchcab-cvsequencer
+
 <img alt="screenshot of the CV Sequencer module" src="packages/cvsequencer/modules/cvsequencer.png" height="400">
 
 - 4 step "cv" sequencer
@@ -27,19 +30,31 @@ from your patchcab project directory (...and probably rebuild/restart the server
 - advance and reset gate inputs
 
 ## AdditiveOSC
+- [source](packages/additiveosc)
+- @banksean/patchcab-additiveosc
+
 <img alt="screenshot of the Additive Oscillator module" src="packages/additiveosc/modules/additiveosc.png" height="400">
 
 - raw frequency value input for the fundamental (see development notes/caveats below, re: "voltage" convetions)
 - faders to control each of the first 16 harmonic overtones of the fundamental frequency
 
 ## MIDIIn
+- [source](packages/midiin)
+- @banksean/patchcab-midiin
+
 <img alt="screenshot of the Midi In module" src="packages/midiin/modules/midiin.png" height="400">
 
-- monophonic midi input, so only one note/velocity/mod etc at a time.
-- selectable midi channel
+- gate, pitch, velocity and mod
+- monophonic, so only one note/velocity/mod etc at a time.
+- selectable midi channel 1-16
+- toggle for aftertouch velocity
+- transport outputs: start, stop and clock (MIDI is 24ppq so you may want a divider)
 - note output is raw frequency value, in 12 tone equal temperment (see development notes/caveats below, re: "voltage" convetions).
 
 ## Polyrhythm
+- [source](packages/polyrhythm)
+- @banksean/patchcab-polyrhythm
+
 <img alt="screenshot of the Polyrhythm module" src="packages/polyrhythm/modules/polyrhythm.png" height="400">
 
 - gate sequencer inspired by the sequencer section of the [Moog Subharmonicon](https://www.moogmusic.com/products/subharmonicon)
