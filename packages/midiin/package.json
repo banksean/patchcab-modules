@@ -2,7 +2,7 @@
     "name": "@banksean/patchcab-midiin",
     "scope": "@banksean",
     "description": "MIDI input module for patchcab",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "publishConfig": {
         "access": "public"
     },
