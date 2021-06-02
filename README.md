@@ -1,8 +1,8 @@
 # patchcab-modules
 
-Modules for [Patchcab](https://github.com/spectrome/patchcab/). 
+Modules for [Patchcab](https://github.com/spectrome/patchcab/).
 
-Requiements: 
+Requiements:
 - A working installation of Patchab. [See its github page for details](https://github.com/spectrome/patchcab/).
 - For the Midi In module, you'll need some kind of midi controller visible to the Web Midi API.
 
@@ -20,24 +20,28 @@ from your patchcab project directory (...and probably rebuild/restart the server
 # Modules in this repo
 
 ## CVSequencer
-![screenshot of the CV Sequencer module](packages/cvsequencer/modules/cvsequencer.png)
+<img alt="screenshot of the CV Sequencer module" src="packages/cvsequencer/modules/cvsequencer.png" style="max-height: 400px">
+
 - 4 step "cv" sequencer
 - steps have knobs to set values in [0, 1]
 - advance and reset gate inputs
 
 ## AdditiveOSC
-![screenshot of the Additive Oscillator module](packages/additiveosc/modules/additiveosc.png)
+<img alt="screenshot of the Additive Oscillator module" src="packages/additiveosc/modules/additiveosc.png" style="max-height: 400px">
+
 - raw frequency value input for the fundamental (see development notes/caveats below, re: "voltage" convetions)
 - faders to control each of the first 16 harmonic overtones of the fundamental frequency
 
 ## MIDIIn
-![screenshot of the Midi In module](packages/midiin/modules/midiin.png)
+<img alt="screenshot of the Midi In module" src="packages/midiin/modules/midiin.png" style="max-height: 400px">
+
 - monophonic midi input, so only one note/velocity/mod etc at a time.
 - selectable midi channel
 - note output is raw frequency value, in 12 tone equal temperment (see development notes/caveats below, re: "voltage" convetions).
 
 ## Polyrhythm
-![screenshot of the Polyrhythm module](packages/polyrhythm/modules/polyrhythm.png)
+<img alt="screenshot of the Polyrhythm module" src="packages/polyrhythm/modules/polyrhythm.png" style="max-height: 400px">
+
 - gate sequencer inspired by the sequencer section of the [Moog Subharmonicon](https://www.moogmusic.com/products/subharmonicon)
 - "rhythm" knobs control the value of each of four distinct clock dividers
   - discrete values the rage 1-16
@@ -63,13 +67,13 @@ I use [lerna](https://github.com/lerna/lerna#readme) to manage separate npm pack
 lerna run build
 ```
 
-or cd into indivudal packages/ directories and run `yarn build` from there. 
+or cd into indivudal packages/ directories and run `yarn build` from there.
 
 ## UI Framework
 
 Patchcab uses [Svelte](https://svelte.dev/), a UI framework I'd never used before this. I'm more of a Web Components, [a la carte web development](https://bitworking.org/news/2018/03/a-la-carte-web-development/) fan myself, but Svelte seems fine for this purpose and the Patchcab source has lots of examples to learn from.
 
-## Voltage, pitch signals etc (Hz, not Volts)
+## Voltage, pitch signals etc (Hz, not "Volts")
 
 For both the Midi In module and the Additive Oscillator, I wrote the inputs/outputs to assume Hz rather than an intermediate "voltage" that then gets rescaled into/out of Hz.
 
