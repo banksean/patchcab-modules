@@ -44,12 +44,14 @@ from your patchcab project directory (...and probably rebuild/restart the server
 
 <img alt="screenshot of the Midi In module" src="packages/midiin/modules/midiin.png" height="400">
 
-- gate, pitch, velocity and mod
+- gate, pitch f (Hz), pitch unit ([0-1]), velocity and mod
+  - f output is pitch in raw frequency value, in 12 tone equal temperment.
+  - unit output is pitch in unit ([0-1]) value. Useful for Patchcab's default OSC module's fm input.
+  - see development notes/caveats below, re: "voltage" convetions.
 - monophonic, so only one note/velocity/mod etc at a time.
 - selectable midi channel 1-16
 - toggle for aftertouch velocity
 - transport outputs: start, stop and clock (MIDI is 24ppq so you may want a divider)
-- note output is raw frequency value, in 12 tone equal temperment (see development notes/caveats below, re: "voltage" convetions).
 
 ## Polyrhythm
 - [source](packages/polyrhythm)
