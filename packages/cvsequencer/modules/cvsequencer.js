@@ -1,1 +1,695 @@
-import{usePan as t,scale as e,round as s,Label as n,Faceplate as _,Bang as o,Patch as r,Knob as a}from"/js/core.js";__sv.SvelteComponent;function i(t){let e,s;return e=new n({props:{top:-1,$$slots:{default:[l]},$$scope:{ctx:t}}}),{c(){__sv.create_component(e.$$.fragment)},m(t,n){__sv.mount_component(e,t,n),s=!0},p(t,s){const n={};33&s&&(n.$$scope={dirty:s,ctx:t}),e.$set(n)},i(t){s||(__sv.transition_in(e.$$.fragment,t),s=!0)},o(t){__sv.transition_out(e.$$.fragment,t),s=!1},d(t){__sv.destroy_component(e,t)}}}function l(t){let e;return{c(){e=__sv.text(t[0])},m(t,s){__sv.insert(t,e,s)},p(t,s){1&s&&__sv.set_data(e,t[0])},d(t){t&&__sv.detach(e)}}}function v(t){let e,s,n=t[0]&&i(t);return{c(){e=__sv.element("button"),n&&n.c(),__sv.attr(e,"aria-label","indicator"),__sv.set_style(e,"left",t[3]+"px"),__sv.set_style(e,"top",t[4]+"px"),__sv.attr(e,"class","svelte-1pjduaz"),__sv.toggle_class(e,"on",t[2]),__sv.toggle_class(e,"high",t[1])},m(t,_){__sv.insert(t,e,_),n&&n.m(e,null),s=!0},p(t,[_]){t[0]?n?(n.p(t,_),1&_&&__sv.transition_in(n,1)):(n=i(t),n.c(),__sv.transition_in(n,1),n.m(e,null)):n&&(__sv.group_outros(),__sv.transition_out(n,1,1,(()=>{n=null})),__sv.check_outros()),(!s||8&_)&&__sv.set_style(e,"left",t[3]+"px"),(!s||16&_)&&__sv.set_style(e,"top",t[4]+"px"),4&_&&__sv.toggle_class(e,"on",t[2]),2&_&&__sv.toggle_class(e,"high",t[1])},i(t){s||(__sv.transition_in(n),s=!0)},o(t){__sv.transition_out(n),s=!1},d(t){t&&__sv.detach(e),n&&n.d()}}}function c(t,e,s){let{label:n}=e,{high:_}=e,{active:o=!1}=e,{x:r=0}=e,{y:a=0}=e;return t.$$set=t=>{"label"in t&&s(0,n=t.label),"high"in t&&s(1,_=t.high),"active"in t&&s(2,o=t.active),"x"in t&&s(3,r=t.x),"y"in t&&s(4,a=t.y)},[n,_,o,r,a]}class p extends __sv.SvelteComponent{constructor(t){var e;super(),document.getElementById("svelte-1pjduaz-style")||((e=__sv.element("style")).id="svelte-1pjduaz-style",e.textContent="button.svelte-1pjduaz{position:absolute;width:18px;height:18px;border-radius:18px;background:var(--color-dark);border:1px solid rgba(0, 0, 0, 0.32);box-shadow:inset 2px 2px 0px rgba(255, 255, 255, 0.08), 0px 0px 0px 2px rgba(0, 0, 0, 0.12);cursor:pointer;color:inherit}button.high.svelte-1pjduaz{background:var(--color-dark-highlight)}button.svelte-1pjduaz{width:10px;height:10px;border-radius:50%}button.on.svelte-1pjduaz{background:var(--color-on);box-shadow:inset 2px 2px 0px rgba(255, 255, 255, 0.24), 0px 0px 0px 2px rgba(0, 0, 0, 0.12)}button.on.high.svelte-1pjduaz{background:var(--color-on-highlight)}",__sv.append(document.head,e)),__sv.init(this,t,c,v,__sv.safe_not_equal,{label:0,high:1,active:2,x:3,y:4})}}function u(t,e,s){const n=t.slice();return n[6]=e[s],n[7]=e,n[8]=s,n}function m(t){let e,s,n,_,o;function r(e){t[5](e,t[8])}let i={size:"s",x:20,y:48*t[8]+60,min:0,max:1,precision:2};return void 0!==t[0].seqSteps[t[8]]&&(i.value=t[0].seqSteps[t[8]]),e=new a({props:i}),__sv.binding_callbacks.push((()=>__sv.bind(e,"value",r))),_=new p({props:{x:68,y:48*t[8]+76,active:t[8]==t[1]}}),{c(){__sv.create_component(e.$$.fragment),n=__sv.space(),__sv.create_component(_.$$.fragment)},m(t,s){__sv.mount_component(e,t,s),__sv.insert(t,n,s),__sv.mount_component(_,t,s),o=!0},p(n,o){t=n;const r={};!s&&1&o&&(s=!0,r.value=t[0].seqSteps[t[8]],__sv.add_flush_callback((()=>s=!1))),e.$set(r);const a={};2&o&&(a.active=t[8]==t[1]),_.$set(a)},i(t){o||(__sv.transition_in(e.$$.fragment,t),__sv.transition_in(_.$$.fragment,t),o=!0)},o(t){__sv.transition_out(e.$$.fragment,t),__sv.transition_out(_.$$.fragment,t),o=!1},d(t){__sv.destroy_component(e,t),t&&__sv.detach(n),__sv.destroy_component(_,t)}}}function d(t){let e,s,n,_,o,a,i,l,v=t[0].seqSteps,c=[];for(let e=0;e<v.length;e+=1)c[e]=m(u(t,v,e));const p=t=>__sv.transition_out(c[t],1,1,(()=>{c[t]=null}));return n=new r({props:{label:"out",x:62,y:48+64*$,name:"out-cv",output:t[2]}}),o=new r({props:{label:"adv",x:18,y:64*$,name:"advance",input:t[4]}}),i=new r({props:{label:"rst",x:62,y:64*$,name:"reset",input:t[3]}}),{c(){e=__sv.element("steps");for(let t=0;t<c.length;t+=1)c[t].c();s=__sv.space(),__sv.create_component(n.$$.fragment),_=__sv.space(),__sv.create_component(o.$$.fragment),a=__sv.space(),__sv.create_component(i.$$.fragment),__sv.attr(e,"class","svelte-3pyt7d")},m(t,r){__sv.insert(t,e,r);for(let t=0;t<c.length;t+=1)c[t].m(e,null);__sv.insert(t,s,r),__sv.mount_component(n,t,r),__sv.insert(t,_,r),__sv.mount_component(o,t,r),__sv.insert(t,a,r),__sv.mount_component(i,t,r),l=!0},p(t,s){if(3&s){let n;for(v=t[0].seqSteps,n=0;n<v.length;n+=1){const _=u(t,v,n);c[n]?(c[n].p(_,s),__sv.transition_in(c[n],1)):(c[n]=m(_),c[n].c(),__sv.transition_in(c[n],1),c[n].m(e,null))}for(__sv.group_outros(),n=v.length;n<c.length;n+=1)p(n);__sv.check_outros()}},i(t){if(!l){for(let t=0;t<v.length;t+=1)__sv.transition_in(c[t]);__sv.transition_in(n.$$.fragment,t),__sv.transition_in(o.$$.fragment,t),__sv.transition_in(i.$$.fragment,t),l=!0}},o(t){c=c.filter(Boolean);for(let t=0;t<c.length;t+=1)__sv.transition_out(c[t]);__sv.transition_out(n.$$.fragment,t),__sv.transition_out(o.$$.fragment,t),__sv.transition_out(i.$$.fragment,t),l=!1},d(t){t&&__sv.detach(e),__sv.destroy_each(c,t),t&&__sv.detach(s),__sv.destroy_component(n,t),t&&__sv.detach(_),__sv.destroy_component(o,t),t&&__sv.detach(a),__sv.destroy_component(i,t)}}}function g(t){let e,s;return e=new _({props:{title:"CVSEQ",color:"#1D1E22",$$slots:{default:[d]},$$scope:{ctx:t}}}),{c(){__sv.create_component(e.$$.fragment)},m(t,n){__sv.mount_component(e,t,n),s=!0},p(t,[s]){const n={};515&s&&(n.$$scope={dirty:s,ctx:t}),e.$set(n)},i(t){s||(__sv.transition_in(e.$$.fragment,t),s=!0)},o(t){__sv.transition_out(e.$$.fragment,t),s=!1},d(t){__sv.destroy_component(e,t)}}}const $=4;function h(t,e,s){let{state:n={seqSteps:Array($).fill(0)}}=e,_=0;const r=new Tone.Signal,a=new o(((t,e,n)=>{s(1,_=0)})),i=new o(((t,e,o)=>{s(1,_++,_),s(1,_%=$);let a=n.seqSteps[_];r.setValueAtTime(a,t)}));return t.$$set=t=>{"state"in t&&s(0,n=t.state)},[n,_,r,a,i,function(e,_){t.$$.not_equal(n.seqSteps[_],e)&&(n.seqSteps[_]=e,s(0,n))}]}class f extends __sv.SvelteComponent{constructor(t){var e;super(),document.getElementById("svelte-3pyt7d-style")||((e=__sv.element("style")).id="svelte-3pyt7d-style",e.textContent="steps.svelte-3pyt7d{position:absolute;top:0px}",__sv.append(document.head,e)),__sv.init(this,t,h,g,__sv.safe_not_equal,{state:0})}}export default f;
+
+(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(window.document);
+import { usePan, scale, round, Label, Faceplate, Bang, Patch, Knob } from '/js/core.js';
+
+/* node_modules/@banksean/patchcab-ui/lib/components/Fader.svelte generated by Svelte v3.35.0 */
+
+function add_css$2() {
+	var style = __sv.element("style");
+	style.id = "svelte-byng8-style";
+	style.textContent = ".container.svelte-byng8{display:block;position:absolute;width:32px;height:228px;cursor:row-resize}svg.svelte-byng8{position:absolute;top:0px;left:0px;transform-origin:center}.label.svelte-byng8{position:absolute;bottom:0px;width:100%;margin-left:auto;margin-right:auto;font-size:small;text-align:center}";
+	__sv.append(document.head, style);
+}
+
+// (62:4) {#if label}
+function create_if_block$1(ctx) {
+	let div;
+	let t;
+
+	return {
+		c() {
+			div = __sv.element("div");
+			t = __sv.text(/*label*/ ctx[2]);
+			__sv.attr(div, "class", "label svelte-byng8");
+		},
+		m(target, anchor) {
+			__sv.insert(target, div, anchor);
+			__sv.append(div, t);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*label*/ 4) __sv.set_data(t, /*label*/ ctx[2]);
+		},
+		d(detaching) {
+			if (detaching) __sv.detach(div);
+		}
+	};
+}
+
+function create_fragment$2(ctx) {
+	let div;
+	let svg;
+	let g;
+	let rect0;
+	let rect1;
+	let rect1_y_value;
+	let t;
+	let mounted;
+	let dispose;
+	let if_block = /*label*/ ctx[2] && create_if_block$1(ctx);
+
+	return {
+		c() {
+			div = __sv.element("div");
+			svg = __sv.svg_element("svg");
+			g = __sv.svg_element("g");
+			rect0 = __sv.svg_element("rect");
+			rect1 = __sv.svg_element("rect");
+			t = __sv.space();
+			if (if_block) if_block.c();
+			__sv.set_style(rect0, "fill", "#ddd");
+			__sv.attr(rect0, "x", "50%");
+			__sv.attr(rect0, "y", "0");
+			__sv.attr(rect0, "width", "3");
+			__sv.attr(rect0, "height", "100%");
+			__sv.set_style(rect1, "fill", "#eee");
+			__sv.attr(rect1, "x", "0");
+			__sv.attr(rect1, "y", rect1_y_value = "" + (/*position*/ ctx[3] + "px"));
+			__sv.attr(rect1, "width", "100%");
+			__sv.attr(rect1, "height", "8");
+			__sv.attr(svg, "width", "32");
+			__sv.attr(svg, "height", "200");
+			__sv.attr(svg, "fill", "red");
+			__sv.attr(svg, "xmlns", "http://www.w3.org/2000/svg");
+			__sv.attr(svg, "class", "svelte-byng8");
+			__sv.attr(div, "class", "container svelte-byng8");
+			__sv.set_style(div, "left", /*x*/ ctx[0] + "px");
+			__sv.set_style(div, "top", /*y*/ ctx[1] + "px");
+		},
+		m(target, anchor) {
+			__sv.insert(target, div, anchor);
+			__sv.append(div, svg);
+			__sv.append(svg, g);
+			__sv.append(g, rect0);
+			__sv.append(g, rect1);
+			__sv.append(div, t);
+			if (if_block) if_block.m(div, null);
+
+			if (!mounted) {
+				dispose = __sv.action_destroyer(usePan.call(null, div, /*onPan*/ ctx[4]));
+				mounted = true;
+			}
+		},
+		p(ctx, [dirty]) {
+			if (dirty & /*position*/ 8 && rect1_y_value !== (rect1_y_value = "" + (/*position*/ ctx[3] + "px"))) {
+				__sv.attr(rect1, "y", rect1_y_value);
+			}
+
+			if (/*label*/ ctx[2]) {
+				if (if_block) {
+					if_block.p(ctx, dirty);
+				} else {
+					if_block = create_if_block$1(ctx);
+					if_block.c();
+					if_block.m(div, null);
+				}
+			} else if (if_block) {
+				if_block.d(1);
+				if_block = null;
+			}
+
+			if (dirty & /*x*/ 1) {
+				__sv.set_style(div, "left", /*x*/ ctx[0] + "px");
+			}
+
+			if (dirty & /*y*/ 2) {
+				__sv.set_style(div, "top", /*y*/ ctx[1] + "px");
+			}
+		},
+		i: __sv.noop,
+		o: __sv.noop,
+		d(detaching) {
+			if (detaching) __sv.detach(div);
+			if (if_block) if_block.d();
+			mounted = false;
+			dispose();
+		}
+	};
+}
+
+function instance$2($$self, $$props, $$invalidate) {
+	let position;
+	
+	let { x } = $$props;
+	let { y } = $$props;
+	let { min } = $$props;
+	let { max } = $$props;
+	let { value } = $$props;
+	let { label } = $$props;
+	let { steps = 200 } = $$props;
+	let { precision = 0 } = $$props;
+
+	const onPan = ({ dy }) => {
+		if (dy !== 0) {
+			const interval = (max - min) / steps;
+			const change = round(value - dy * interval, precision);
+			$$invalidate(5, value = Math.max(Math.min(change, max), min));
+		}
+	};
+
+	$$self.$$set = $$props => {
+		if ("x" in $$props) $$invalidate(0, x = $$props.x);
+		if ("y" in $$props) $$invalidate(1, y = $$props.y);
+		if ("min" in $$props) $$invalidate(6, min = $$props.min);
+		if ("max" in $$props) $$invalidate(7, max = $$props.max);
+		if ("value" in $$props) $$invalidate(5, value = $$props.value);
+		if ("label" in $$props) $$invalidate(2, label = $$props.label);
+		if ("steps" in $$props) $$invalidate(8, steps = $$props.steps);
+		if ("precision" in $$props) $$invalidate(9, precision = $$props.precision);
+	};
+
+	$$self.$$.update = () => {
+		if ($$self.$$.dirty & /*value, min, max*/ 224) {
+			$$invalidate(3, position = scale(value, [min, max], [190, 5], 0));
+		}
+	};
+
+	return [x, y, label, position, onPan, value, min, max, steps, precision];
+}
+
+class Fader extends __sv.SvelteComponent {
+	constructor(options) {
+		super();
+		if (!document.getElementById("svelte-byng8-style")) add_css$2();
+
+		__sv.init(this, options, instance$2, create_fragment$2, __sv.safe_not_equal, {
+			x: 0,
+			y: 1,
+			min: 6,
+			max: 7,
+			value: 5,
+			label: 2,
+			steps: 8,
+			precision: 9
+		});
+	}
+}
+
+/* node_modules/@banksean/patchcab-ui/lib/components/Indicator.svelte generated by Svelte v3.35.0 */
+
+function add_css$1() {
+	var style = __sv.element("style");
+	style.id = "svelte-1pjduaz-style";
+	style.textContent = "button.svelte-1pjduaz{position:absolute;width:18px;height:18px;border-radius:18px;background:var(--color-dark);border:1px solid rgba(0, 0, 0, 0.32);box-shadow:inset 2px 2px 0px rgba(255, 255, 255, 0.08), 0px 0px 0px 2px rgba(0, 0, 0, 0.12);cursor:pointer;color:inherit}button.high.svelte-1pjduaz{background:var(--color-dark-highlight)}button.svelte-1pjduaz{width:10px;height:10px;border-radius:50%}button.on.svelte-1pjduaz{background:var(--color-on);box-shadow:inset 2px 2px 0px rgba(255, 255, 255, 0.24), 0px 0px 0px 2px rgba(0, 0, 0, 0.12)}button.on.high.svelte-1pjduaz{background:var(--color-on-highlight)}";
+	__sv.append(document.head, style);
+}
+
+// (43:0) {#if label}
+function create_if_block(ctx) {
+	let label_1;
+	let current;
+
+	label_1 = new Label({
+			props: {
+				top: -1,
+				$$slots: { default: [create_default_slot$1] },
+				$$scope: { ctx }
+			}
+		});
+
+	return {
+		c() {
+			__sv.create_component(label_1.$$.fragment);
+		},
+		m(target, anchor) {
+			__sv.mount_component(label_1, target, anchor);
+			current = true;
+		},
+		p(ctx, dirty) {
+			const label_1_changes = {};
+
+			if (dirty & /*$$scope, label*/ 33) {
+				label_1_changes.$$scope = { dirty, ctx };
+			}
+
+			label_1.$set(label_1_changes);
+		},
+		i(local) {
+			if (current) return;
+			__sv.transition_in(label_1.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			__sv.transition_out(label_1.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			__sv.destroy_component(label_1, detaching);
+		}
+	};
+}
+
+// (44:0) <Label top={-1}>
+function create_default_slot$1(ctx) {
+	let t;
+
+	return {
+		c() {
+			t = __sv.text(/*label*/ ctx[0]);
+		},
+		m(target, anchor) {
+			__sv.insert(target, t, anchor);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*label*/ 1) __sv.set_data(t, /*label*/ ctx[0]);
+		},
+		d(detaching) {
+			if (detaching) __sv.detach(t);
+		}
+	};
+}
+
+function create_fragment$1(ctx) {
+	let button;
+	let current;
+	let if_block = /*label*/ ctx[0] && create_if_block(ctx);
+
+	return {
+		c() {
+			button = __sv.element("button");
+			if (if_block) if_block.c();
+			__sv.attr(button, "aria-label", "indicator");
+			__sv.set_style(button, "left", /*x*/ ctx[3] + "px");
+			__sv.set_style(button, "top", /*y*/ ctx[4] + "px");
+			__sv.attr(button, "class", "svelte-1pjduaz");
+			__sv.toggle_class(button, "on", /*active*/ ctx[2]);
+			__sv.toggle_class(button, "high", /*high*/ ctx[1]);
+		},
+		m(target, anchor) {
+			__sv.insert(target, button, anchor);
+			if (if_block) if_block.m(button, null);
+			current = true;
+		},
+		p(ctx, [dirty]) {
+			if (/*label*/ ctx[0]) {
+				if (if_block) {
+					if_block.p(ctx, dirty);
+
+					if (dirty & /*label*/ 1) {
+						__sv.transition_in(if_block, 1);
+					}
+				} else {
+					if_block = create_if_block(ctx);
+					if_block.c();
+					__sv.transition_in(if_block, 1);
+					if_block.m(button, null);
+				}
+			} else if (if_block) {
+				__sv.group_outros();
+
+				__sv.transition_out(if_block, 1, 1, () => {
+					if_block = null;
+				});
+
+				__sv.check_outros();
+			}
+
+			if (!current || dirty & /*x*/ 8) {
+				__sv.set_style(button, "left", /*x*/ ctx[3] + "px");
+			}
+
+			if (!current || dirty & /*y*/ 16) {
+				__sv.set_style(button, "top", /*y*/ ctx[4] + "px");
+			}
+
+			if (dirty & /*active*/ 4) {
+				__sv.toggle_class(button, "on", /*active*/ ctx[2]);
+			}
+
+			if (dirty & /*high*/ 2) {
+				__sv.toggle_class(button, "high", /*high*/ ctx[1]);
+			}
+		},
+		i(local) {
+			if (current) return;
+			__sv.transition_in(if_block);
+			current = true;
+		},
+		o(local) {
+			__sv.transition_out(if_block);
+			current = false;
+		},
+		d(detaching) {
+			if (detaching) __sv.detach(button);
+			if (if_block) if_block.d();
+		}
+	};
+}
+
+function instance$1($$self, $$props, $$invalidate) {
+	let { label = undefined } = $$props;
+	let { high } = $$props;
+	let { active = false } = $$props;
+	let { x = 0 } = $$props;
+	let { y = 0 } = $$props;
+
+	$$self.$$set = $$props => {
+		if ("label" in $$props) $$invalidate(0, label = $$props.label);
+		if ("high" in $$props) $$invalidate(1, high = $$props.high);
+		if ("active" in $$props) $$invalidate(2, active = $$props.active);
+		if ("x" in $$props) $$invalidate(3, x = $$props.x);
+		if ("y" in $$props) $$invalidate(4, y = $$props.y);
+	};
+
+	return [label, high, active, x, y];
+}
+
+class Indicator extends __sv.SvelteComponent {
+	constructor(options) {
+		super();
+		if (!document.getElementById("svelte-1pjduaz-style")) add_css$1();
+		__sv.init(this, options, instance$1, create_fragment$1, __sv.safe_not_equal, { label: 0, high: 1, active: 2, x: 3, y: 4 });
+	}
+}
+
+/* src/CVSequencer.svelte generated by Svelte v3.35.0 */
+
+function add_css() {
+	var style = __sv.element("style");
+	style.id = "svelte-3pyt7d-style";
+	style.textContent = "steps.svelte-3pyt7d{position:absolute;top:0px}";
+	__sv.append(document.head, style);
+}
+
+function get_each_context(ctx, list, i) {
+	const child_ctx = ctx.slice();
+	child_ctx[6] = list[i];
+	child_ctx[7] = list;
+	child_ctx[8] = i;
+	return child_ctx;
+}
+
+// (30:8) {#each state.seqSteps as cv, stepIndex}
+function create_each_block(ctx) {
+	let knob;
+	let updating_value;
+	let t;
+	let indicator;
+	let current;
+
+	function knob_value_binding(value) {
+		/*knob_value_binding*/ ctx[5](value, /*stepIndex*/ ctx[8]);
+	}
+
+	let knob_props = {
+		size: "s",
+		x: 20,
+		y: /*stepIndex*/ ctx[8] * 48 + 60,
+		min: 0,
+		max: 1,
+		precision: 2
+	};
+
+	if (/*state*/ ctx[0].seqSteps[/*stepIndex*/ ctx[8]] !== void 0) {
+		knob_props.value = /*state*/ ctx[0].seqSteps[/*stepIndex*/ ctx[8]];
+	}
+
+	knob = new Knob({ props: knob_props });
+	__sv.binding_callbacks.push(() => __sv.bind(knob, "value", knob_value_binding));
+
+	indicator = new Indicator({
+			props: {
+				x: 68,
+				y: /*stepIndex*/ ctx[8] * 48 + 76,
+				active: /*stepIndex*/ ctx[8] == /*currentStep*/ ctx[1]
+			}
+		});
+
+	return {
+		c() {
+			__sv.create_component(knob.$$.fragment);
+			t = __sv.space();
+			__sv.create_component(indicator.$$.fragment);
+		},
+		m(target, anchor) {
+			__sv.mount_component(knob, target, anchor);
+			__sv.insert(target, t, anchor);
+			__sv.mount_component(indicator, target, anchor);
+			current = true;
+		},
+		p(new_ctx, dirty) {
+			ctx = new_ctx;
+			const knob_changes = {};
+
+			if (!updating_value && dirty & /*state*/ 1) {
+				updating_value = true;
+				knob_changes.value = /*state*/ ctx[0].seqSteps[/*stepIndex*/ ctx[8]];
+				__sv.add_flush_callback(() => updating_value = false);
+			}
+
+			knob.$set(knob_changes);
+			const indicator_changes = {};
+			if (dirty & /*currentStep*/ 2) indicator_changes.active = /*stepIndex*/ ctx[8] == /*currentStep*/ ctx[1];
+			indicator.$set(indicator_changes);
+		},
+		i(local) {
+			if (current) return;
+			__sv.transition_in(knob.$$.fragment, local);
+			__sv.transition_in(indicator.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			__sv.transition_out(knob.$$.fragment, local);
+			__sv.transition_out(indicator.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			__sv.destroy_component(knob, detaching);
+			if (detaching) __sv.detach(t);
+			__sv.destroy_component(indicator, detaching);
+		}
+	};
+}
+
+// (28:2) <Faceplate title="CVSEQ" color="#1D1E22">
+function create_default_slot(ctx) {
+	let steps;
+	let t0;
+	let patch0;
+	let t1;
+	let patch1;
+	let t2;
+	let patch2;
+	let current;
+	let each_value = /*state*/ ctx[0].seqSteps;
+	let each_blocks = [];
+
+	for (let i = 0; i < each_value.length; i += 1) {
+		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+	}
+
+	const out = i => __sv.transition_out(each_blocks[i], 1, 1, () => {
+		each_blocks[i] = null;
+	});
+
+	patch0 = new Patch({
+			props: {
+				label: "out",
+				x: 62,
+				y: 48 + STEPS * 64,
+				name: "out-cv",
+				output: /*cvOut*/ ctx[2]
+			}
+		});
+
+	patch1 = new Patch({
+			props: {
+				label: "adv",
+				x: 18,
+				y: STEPS * 64,
+				name: "advance",
+				input: /*advanceIn*/ ctx[4]
+			}
+		});
+
+	patch2 = new Patch({
+			props: {
+				label: "rst",
+				x: 62,
+				y: STEPS * 64,
+				name: "reset",
+				input: /*resetIn*/ ctx[3]
+			}
+		});
+
+	return {
+		c() {
+			steps = __sv.element("steps");
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].c();
+			}
+
+			t0 = __sv.space();
+			__sv.create_component(patch0.$$.fragment);
+			t1 = __sv.space();
+			__sv.create_component(patch1.$$.fragment);
+			t2 = __sv.space();
+			__sv.create_component(patch2.$$.fragment);
+			__sv.attr(steps, "class", "svelte-3pyt7d");
+		},
+		m(target, anchor) {
+			__sv.insert(target, steps, anchor);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].m(steps, null);
+			}
+
+			__sv.insert(target, t0, anchor);
+			__sv.mount_component(patch0, target, anchor);
+			__sv.insert(target, t1, anchor);
+			__sv.mount_component(patch1, target, anchor);
+			__sv.insert(target, t2, anchor);
+			__sv.mount_component(patch2, target, anchor);
+			current = true;
+		},
+		p(ctx, dirty) {
+			if (dirty & /*currentStep, state*/ 3) {
+				each_value = /*state*/ ctx[0].seqSteps;
+				let i;
+
+				for (i = 0; i < each_value.length; i += 1) {
+					const child_ctx = get_each_context(ctx, each_value, i);
+
+					if (each_blocks[i]) {
+						each_blocks[i].p(child_ctx, dirty);
+						__sv.transition_in(each_blocks[i], 1);
+					} else {
+						each_blocks[i] = create_each_block(child_ctx);
+						each_blocks[i].c();
+						__sv.transition_in(each_blocks[i], 1);
+						each_blocks[i].m(steps, null);
+					}
+				}
+
+				__sv.group_outros();
+
+				for (i = each_value.length; i < each_blocks.length; i += 1) {
+					out(i);
+				}
+
+				__sv.check_outros();
+			}
+		},
+		i(local) {
+			if (current) return;
+
+			for (let i = 0; i < each_value.length; i += 1) {
+				__sv.transition_in(each_blocks[i]);
+			}
+
+			__sv.transition_in(patch0.$$.fragment, local);
+			__sv.transition_in(patch1.$$.fragment, local);
+			__sv.transition_in(patch2.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			each_blocks = each_blocks.filter(Boolean);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				__sv.transition_out(each_blocks[i]);
+			}
+
+			__sv.transition_out(patch0.$$.fragment, local);
+			__sv.transition_out(patch1.$$.fragment, local);
+			__sv.transition_out(patch2.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			if (detaching) __sv.detach(steps);
+			__sv.destroy_each(each_blocks, detaching);
+			if (detaching) __sv.detach(t0);
+			__sv.destroy_component(patch0, detaching);
+			if (detaching) __sv.detach(t1);
+			__sv.destroy_component(patch1, detaching);
+			if (detaching) __sv.detach(t2);
+			__sv.destroy_component(patch2, detaching);
+		}
+	};
+}
+
+function create_fragment(ctx) {
+	let faceplate;
+	let current;
+
+	faceplate = new Faceplate({
+			props: {
+				title: "CVSEQ",
+				color: "#1D1E22",
+				$$slots: { default: [create_default_slot] },
+				$$scope: { ctx }
+			}
+		});
+
+	return {
+		c() {
+			__sv.create_component(faceplate.$$.fragment);
+		},
+		m(target, anchor) {
+			__sv.mount_component(faceplate, target, anchor);
+			current = true;
+		},
+		p(ctx, [dirty]) {
+			const faceplate_changes = {};
+
+			if (dirty & /*$$scope, state, currentStep*/ 515) {
+				faceplate_changes.$$scope = { dirty, ctx };
+			}
+
+			faceplate.$set(faceplate_changes);
+		},
+		i(local) {
+			if (current) return;
+			__sv.transition_in(faceplate.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			__sv.transition_out(faceplate.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			__sv.destroy_component(faceplate, detaching);
+		}
+	};
+}
+
+const STEPS = 4;
+
+function instance($$self, $$props, $$invalidate) {
+	let { state = { seqSteps: Array(STEPS).fill(0) } } = $$props;
+	let currentStep = 0;
+	const cvOut = new Tone.Signal();
+
+	const resetIn = new Bang((time, on, off) => {
+			$$invalidate(1, currentStep = 0);
+		});
+
+	const advanceIn = new Bang((time, on, off) => {
+			$$invalidate(1, currentStep++, currentStep);
+			$$invalidate(1, currentStep = currentStep % STEPS);
+			let val = state.seqSteps[currentStep];
+			cvOut.setValueAtTime(val, time);
+		});
+
+	function knob_value_binding(value, stepIndex) {
+		if ($$self.$$.not_equal(state.seqSteps[stepIndex], value)) {
+			state.seqSteps[stepIndex] = value;
+			$$invalidate(0, state);
+		}
+	}
+
+	$$self.$$set = $$props => {
+		if ("state" in $$props) $$invalidate(0, state = $$props.state);
+	};
+
+	return [state, currentStep, cvOut, resetIn, advanceIn, knob_value_binding];
+}
+
+class CVSequencer extends __sv.SvelteComponent {
+	constructor(options) {
+		super();
+		if (!document.getElementById("svelte-3pyt7d-style")) add_css();
+		__sv.init(this, options, instance, create_fragment, __sv.safe_not_equal, { state: 0 });
+	}
+}
+
+export default CVSequencer;

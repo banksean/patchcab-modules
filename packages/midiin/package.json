@@ -18,22 +18,20 @@
         "prepublish": "yarn build",
         "postinstall": "touch ./.metadata_never_index"
     },
-    "patchcab": [
-        {
-            "name": "MIDIIn",
-            "file": "MIDIIn",
-            "size": {
-                "w": 9,
-                "h": 1
-            },
-            "tags": [
-                "utility"
-            ],
-            "libs": [
-                "Tone"
-            ]
-        }
-    ],
+    "patchcab": [{
+        "name": "MIDIIn",
+        "file": "MIDIIn",
+        "size": {
+            "w": 9,
+            "h": 1
+        },
+        "tags": [
+            "utility"
+        ],
+        "libs": [
+            "Tone"
+        ]
+    }],
     "prettier": {
         "useTabs": false,
         "arrowParens": "always",
@@ -44,11 +42,8 @@
         "svelteSortOrder": "options-scripts-styles-markup"
     },
     "dependencies": {
-        "@banksean/patchcab-additiveosc": "../additiveosc",
-        "@banksean/patchcab-polyrhythm": "../polyrhythm",
         "@banksean/patchcab-ui": "../ui",
-        "@patchcab/core": "../../../patchcab/core",
-        "@patchcab/modules": "../../../patchcab/modules"
+        "@patchcab/core": "^1.0.5"
     },
     "devDependencies": {
         "lerna": "^4.0.0"

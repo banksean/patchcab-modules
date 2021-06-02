@@ -45,7 +45,7 @@
     },
     "dependencies": {
         "@banksean/patchcab-ui": "../ui",
-        "@patchcab/core": "../../../patchcab/core"
+        "@patchcab/core": "^1.0.5"
     },
     "devDependencies": {
         "lerna": "^4.0.0"
