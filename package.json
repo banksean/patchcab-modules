@@ -6,7 +6,10 @@
     "publishConfig": {
         "access": "public"
     },
-    "private": false,
+    "private": true,
+    "workspaces": [
+        "packages/*"
+    ],
     "author": "banksean (https://banksean.com)",
     "license": "MIT",
     "dependencies": {

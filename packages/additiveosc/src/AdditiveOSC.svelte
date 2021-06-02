@@ -19,7 +19,7 @@
   const oscillator = new Oscillator(state.fundamental).start();
   oscillator.partialCount = PARTIALS;
 
-  const input = new Signal();
+  const fundamental = new Signal();
   const scales = Array(PARTIALS).fill(0).map(()=>new Scale(0.0, 1.0));
 
   $: oscillator.frequency.value = state.fundamental;
@@ -31,9 +31,9 @@
 
   const onConnect = (nodes: number) => {
     if (nodes) {
-      input.connect(oscillator.frequency);
+      fundamental.connect(oscillator.frequency);
     } else {
-      input.disconnect(oscillator.frequency);
+      fundamental.disconnect(oscillator.frequency);
       oscillator.frequency.overridden = false;
       oscillator.frequency.value = state.fundamental;
     }
@@ -78,7 +78,7 @@
              />
         {/each}
         </partials>
-        <Patch x={28} y={290} name="in-cv" input={input} {onConnect} />
+        <Patch x={28} y={290} name="in-cv" input={fundamental} {onConnect} />
         <Patch label="out" x={(PARTIALS+1)*48} y={330} name="out-cv" output={oscillator} />
     </Faceplate>
   

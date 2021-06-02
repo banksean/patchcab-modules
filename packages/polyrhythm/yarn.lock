@@ -893,10 +893,8 @@
   dependencies:
     "@octokit/openapi-types" "^6.1.1"
 
-"@patchcab/core@^1.0.5":
+"@patchcab/core@../../../patchcab/core":
   version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@patchcab/core/-/core-1.0.5.tgz#90e18c16b0c1d768e30600c520afa893a423e95a"
-  integrity sha512-szFszTf267reDTuH1O2ZuQzSle7xL+vowq0ejdWHJ7NNfBxUHdkFnEXCs458vMGRiYcd+bHLJOW+GzF4KvTWpA==
   dependencies:
     "@rollup/plugin-commonjs" "^17.0.0"
     "@rollup/plugin-node-resolve" "^11.0.1"
