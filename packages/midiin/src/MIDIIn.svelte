@@ -128,10 +128,7 @@
         // And even if we re-map the midi note values to 0,1 that's going to produce a non-standard scale that doesn't track with anything else.
         // Contrast this to VCV Rack's more direct reflection of Eurorack standards: https://vcvrack.com/manual/VoltageStandards
         noteCv.setValueAtTime(p, now());
-<<<<<<< HEAD
         unitCv.setValueAtTime(note/127.0, now());
-=======
->>>>>>> main
         velCv.setValueAtTime(velocity/127.0, now());
         // Sigh, this is so Svelte's templating or whatever it is updates the
         // gate's indicator light.
@@ -183,11 +180,7 @@
 </style>
 <Faceplate title="MIDI IN" color="#1D1E22">
     <midi>
-<<<<<<< HEAD
     <Indicator x={40} active={inputs != undefined} label="{midiStatus}"/>
-=======
-    <Indicator x={20} active={inputs != undefined} label="{midiStatus}"/>
->>>>>>> main
     <Knob size="s"
         y={40}
         x={24}
