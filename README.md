@@ -27,20 +27,20 @@ from your patchcab project directory (...and probably rebuild/restart the server
 - advance and reset gate inputs
 
 ## AdditiveOSC
-<img alt="screenshot of the Additive Oscillator module" src="packages/additiveosc/modules/additiveosc.png" style="max-height: 400px">
+<img alt="screenshot of the Additive Oscillator module" src="packages/additiveosc/modules/additiveosc.png" height="400">
 
 - raw frequency value input for the fundamental (see development notes/caveats below, re: "voltage" convetions)
 - faders to control each of the first 16 harmonic overtones of the fundamental frequency
 
 ## MIDIIn
-<img alt="screenshot of the Midi In module" src="packages/midiin/modules/midiin.png" style="max-height: 400px">
+<img alt="screenshot of the Midi In module" src="packages/midiin/modules/midiin.png" height="400">
 
 - monophonic midi input, so only one note/velocity/mod etc at a time.
 - selectable midi channel
 - note output is raw frequency value, in 12 tone equal temperment (see development notes/caveats below, re: "voltage" convetions).
 
 ## Polyrhythm
-<img alt="screenshot of the Polyrhythm module" src="packages/polyrhythm/modules/polyrhythm.png" style="max-height: 400px">
+<img alt="screenshot of the Polyrhythm module" src="packages/polyrhythm/modules/polyrhythm.png" height="400">
 
 - gate sequencer inspired by the sequencer section of the [Moog Subharmonicon](https://www.moogmusic.com/products/subharmonicon)
 - "rhythm" knobs control the value of each of four distinct clock dividers
