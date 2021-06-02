@@ -20,7 +20,7 @@ from your patchcab project directory (...and probably rebuild/restart the server
 # Modules in this repo
 
 ## CVSequencer
-<img alt="screenshot of the CV Sequencer module" src="packages/cvsequencer/modules/cvsequencer.png" style="max-height: 400px">
+<img alt="screenshot of the CV Sequencer module" src="packages/cvsequencer/modules/cvsequencer.png" height="400">
 
 - 4 step "cv" sequencer
 - steps have knobs to set values in [0, 1]
