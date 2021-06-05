@@ -31,7 +31,7 @@
     regenerator-runtime "^0.13.4"
 
 "@banksean/patchcab-ui@file:packages/ui":
-  version "0.0.1"
+  version "0.1.1"
   dependencies:
     "@patchcab/core" "^1.0.5"
     "@tsconfig/svelte" "^1.0.10"
@@ -39,6 +39,7 @@
     svelte "^3.37.0"
     svelte-check "^1.4.0"
     svelte-preprocess "^4.7.2"
+    ws "^7.4.6"
 
 "@choojs/findup@^0.2.0":
   version "0.2.1"
@@ -7447,7 +7448,7 @@ write-pkg@^4.0.0:
     type-fest "^0.4.1"
     write-json-file "^3.2.0"
 
-ws@^7.2.3, ws@^7.4.3:
+ws@^7.2.3, ws@^7.4.3, ws@^7.4.6:
   version "7.4.6"
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.4.6.tgz#5654ca8ecdeee47c33a9a4bf6d28e2be2980377c"
   integrity sha512-YmhHDO4MzaDLB+M9ym/mDA5z0naX8j7SIlT8f8z+I0VtzsRbekxEutHSme7NPS2qE8StCYQNUnfWdXta/Yu85A==
